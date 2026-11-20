@@ -1,0 +1,3387 @@
+
+The_Magical_World_of_Colours_-_Interactive_English_Learnin.html
+100%
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="tool">
+  <meta name="design-style" content="sticker">
+  <title>The Magical World of Colours — Interactive English Storybook</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..900;1,9..40,400..900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@1.43.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      color-scheme: light;
+
+      /* Sticker base surfaces adapted to warm storybook cream paper */
+      --background: #fdf7ea;
+      --surface-container-low: #fffdf8;
+      --surface-container: #f5ebd6;
+      --surface-container-high: #ebdcc0;
+
+      /* Storybook ink */
+      --on-surface: #36221a;
+      --on-surface-variant: #694e42;
+
+      /* Outlines */
+      --outline: #a38674;
+      --outline-variant: #e3d3bc;
+
+      /* Sticker primary accents */
+      --primary: #c2207f;
+      --on-primary: #ffffff;
+      --primary-container: #f8c8e2;
+      --on-primary-container: #36221a;
+      --secondary: #7c52aa;
+      --tertiary: #1e96d6;
+      --error: #c53030;
+      --on-error: #ffffff;
+
+      /* Storybook 11-colour palette */
+      --color-red: #dc3545;
+      --color-yellow: #f7c927;
+      --color-blue: #2393d8;
+      --color-green: #38a153;
+      --color-orange: #f48424;
+      --color-purple: #8755c2;
+      --color-pink: #eb5d9e;
+      --color-black: #2b2629;
+      --color-white: #ffffff;
+      --color-brown: #7c4d2e;
+      --color-indigo: #4640a8;
+      --color-violet: #9d50d4;
+      --color-cream: #fdf7ea;
+      --color-sky-soft: #d9f1fc;
+      --color-grass-soft: #d8f3dc;
+      --color-gold: #e8a317;
+      --color-grey-muted: #9a9691;
+      --color-grey-light: #dad5ce;
+
+      /* Data series */
+      --data-1: #c2207f;
+      --data-2: #7c52aa;
+      --data-3: #1e96d6;
+      --data-4: #f48424;
+      --data-context: #c9b9aa;
+
+      /* Semantic */
+      --positive: #288542;
+      --positive-bg: #def7e5;
+      --warning: #b86800;
+      --warning-bg: #fff2d6;
+      --focus: #c2207f;
+
+      /* Fonts */
+      --font-headline: 'DM Sans', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-label: 'DM Sans', sans-serif;
+
+      /* Type scale */
+      --display-size: clamp(1.85rem, 1.35rem + 1.8vw, 2.75rem);
+      --headline-size: clamp(1.35rem, 1.1rem + 0.8vw, 1.85rem);
+      --subhead-size: clamp(1.0625rem, 1rem + 0.35vw, 1.3rem);
+      --body-size: clamp(1rem, 0.95rem + 0.2vw, 1.08rem);
+      --label-size: 0.78rem;
+
+      /* Shape */
+      --rounded: 1.15rem;
+      --rounded-lg: 1.85rem;
+      --rounded-full: 9999px;
+
+      /* Spacing */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.25rem;
+      --space-2xl: 3.5rem;
+
+      /* Sticker tinted shadows */
+      --shadow-pink: 0 5px 18px rgb(194 32 127 / 0.16);
+      --shadow-pink-deep: 0 10px 28px rgb(194 32 127 / 0.28);
+      --shadow-grape: 0 5px 18px rgb(124 82 170 / 0.16);
+      --shadow-sky: 0 5px 18px rgb(30 150 214 / 0.18);
+      --shadow-warm: 0 5px 18px rgb(124 77 46 / 0.12);
+      --pop-scale: scale(1.04);
+      --lift: translateY(-4px);
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-micro: 120ms;
+      --dur-short: 220ms;
+      --dur-long: 420ms;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    header { position: static !important; }
+
+    /* Focus rings */
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    /* App Shell */
+    .app-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: var(--space-md) var(--space-lg) var(--space-2xl);
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .app-shell * { min-width: 0; }
+
+    /* Top Storybook Navigation Bar */
+    .storybook-header {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md) var(--space-lg);
+      box-shadow: var(--shadow-pink);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .brand-btn {
+      background: transparent;
+      border: none;
+      padding: var(--space-xs) var(--space-sm);
+      border-radius: var(--rounded-full);
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      cursor: pointer;
+      color: var(--on-surface);
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+      text-align: left;
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+    .brand-btn:hover { transform: var(--pop-scale); }
+    .brand-btn em { font-style: normal; color: var(--primary); }
+
+    .status-strip {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-sm);
+    }
+
+    .stat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      font-size: 0.875rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      align-items: center;
+    }
+
+    /* Buttons & Interactive Pills */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-lg);
+      border-radius: var(--rounded-full);
+      border: 2px solid transparent;
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform var(--dur-short) var(--ease-bounce),
+                  box-shadow var(--dur-short) var(--ease-out),
+                  background-color var(--dur-micro) var(--ease-out);
+    }
+    .btn:hover { transform: var(--pop-scale); }
+    .btn:active { transform: scale(0.97); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+    .btn-primary:hover { box-shadow: var(--shadow-pink-deep); }
+
+    .btn-secondary {
+      background: var(--secondary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-grape);
+    }
+
+    .btn-sky {
+      background: var(--tertiary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-sky);
+    }
+
+    .btn-soft {
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .btn-soft:hover { background: var(--surface-container-high); }
+
+    .btn-nav {
+      min-height: 40px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+      background: var(--surface-container);
+      color: var(--on-surface);
+    }
+    .btn-nav.active {
+      background: var(--primary);
+      color: var(--on-primary);
+      box-shadow: var(--shadow-pink);
+    }
+
+    .btn-audio {
+      background: var(--surface-container);
+      color: var(--primary);
+      min-height: 40px;
+      padding: var(--space-xs) var(--space-md);
+      font-size: 0.875rem;
+      border: 2px solid var(--primary-container);
+    }
+    .btn-audio:hover { background: var(--primary-container); color: var(--on-surface); }
+
+    /* Cards & Containers */
+    .card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-lg);
+    }
+    .card-sky { box-shadow: var(--shadow-sky); }
+    .card-grape { box-shadow: var(--shadow-grape); }
+    .card-warm { box-shadow: var(--shadow-warm); }
+
+    .hero-panel {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      box-shadow: var(--shadow-pink);
+      padding: var(--space-xl);
+    }
+
+    .display {
+      font-family: var(--font-headline);
+      font-weight: 900;
+      font-size: var(--display-size);
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+      margin: 0 0 var(--space-sm);
+      color: var(--on-surface);
+    }
+    .display em { font-style: normal; color: var(--primary); }
+
+    h2 {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--headline-size);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin: 0 0 var(--space-sm);
+      color: var(--on-surface);
+    }
+    h3 {
+      font-family: var(--font-headline);
+      font-weight: 800;
+      font-size: var(--subhead-size);
+      letter-spacing: -0.015em;
+      margin: 0 0 var(--space-xs);
+      color: var(--on-surface);
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      font-size: var(--label-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--secondary);
+      margin-bottom: var(--space-xs);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background: var(--primary-container);
+      color: var(--on-primary-container);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .badge-positive {
+      background: var(--positive-bg);
+      color: var(--positive);
+    }
+
+    /* Progress bar */
+    .progress-track {
+      width: 100%;
+      height: 14px;
+      background: var(--surface-container-high);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--color-red), var(--color-orange), var(--color-yellow), var(--color-green), var(--color-blue), var(--color-purple));
+      border-radius: var(--rounded-full);
+      transition: width var(--dur-long) var(--ease-out);
+    }
+
+    /* Grids */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+
+    /* Inputs with always-visible labels */
+    .field-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .field-group label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--on-surface-variant);
+    }
+    input[type="text"], select {
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    select { padding-right: var(--space-xl); }
+    input[type="text"]:focus, select:focus {
+      border-color: var(--primary);
+      outline: 3px solid var(--primary-container);
+    }
+
+    /* Feedback Banner */
+    .feedback-box {
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--rounded);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+      background: var(--surface-container);
+      color: var(--on-surface);
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+    .feedback-box.success {
+      background: var(--positive-bg);
+      color: var(--positive);
+    }
+    .feedback-box.hint {
+      background: var(--warning-bg);
+      color: var(--warning);
+    }
+
+    /* Colour Swatch Chips */
+    .swatch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .colour-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      border: 3px solid var(--surface-container-high);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .colour-chip:hover { transform: var(--pop-scale); }
+    .colour-chip.selected {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-pink);
+      transform: var(--pop-scale);
+    }
+    .colour-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: var(--rounded-full);
+      border: 2px solid var(--outline-variant);
+      flex-shrink: 0;
+    }
+
+    /* Interactive SVG Scene Container */
+    .scene-frame {
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      position: relative;
+      overflow: hidden;
+    }
+    .scene-svg {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: var(--rounded);
+      user-select: none;
+    }
+    .interactive-obj {
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce), filter var(--dur-short) var(--ease-out);
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .interactive-obj:hover {
+      transform: scale(1.07);
+      filter: drop-shadow(0 4px 8px rgb(54 34 26 / 0.22));
+    }
+    .interactive-obj.highlighted {
+      filter: drop-shadow(0 0 10px var(--primary));
+      transform: scale(1.09);
+    }
+
+    /* Colourless vs Restored transition */
+    .greyscale-mode {
+      filter: grayscale(0.88) saturate(0.25);
+      transition: filter var(--dur-long) var(--ease-out);
+    }
+    .restored-mode {
+      filter: grayscale(0) saturate(1.05);
+      transition: filter var(--dur-long) var(--ease-out);
+    }
+
+    /* Subtle Storybook Animations */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+    @keyframes flutter {
+      0%, 100% { transform: translate(0px, 0px) rotate(-3deg); }
+      50% { transform: translate(5px, -8px) rotate(5deg); }
+    }
+    @keyframes dropFall {
+      0% { transform: translateY(-6px); opacity: 0.9; }
+      50% { transform: translateY(8px); opacity: 1; }
+      100% { transform: translateY(-6px); opacity: 0.9; }
+    }
+    .anim-float { animation: floatSlow 3.4s ease-in-out infinite; }
+    .anim-flutter { animation: flutter 2.8s ease-in-out infinite; }
+    .anim-drop { animation: dropFall 2.4s ease-in-out infinite; }
+
+    /* Companion Cards */
+    .companion-card {
+      background: var(--surface-container-low);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      border: 3px solid var(--outline-variant);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      text-align: left;
+      transition: transform var(--dur-short) var(--ease-bounce), border-color var(--dur-short) var(--ease-out), box-shadow var(--dur-short) var(--ease-out);
+    }
+    .companion-card:hover { transform: var(--lift); }
+    .companion-card.selected {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-pink-deep);
+      background: var(--surface-container-low);
+    }
+
+    /* Chapter Header Bar */
+    .chapter-topbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Drag & Drop Zones */
+    .drop-zone {
+      min-height: 76px;
+      border: 3px dashed var(--outline);
+      border-radius: var(--rounded);
+      background: var(--surface-container);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm);
+      gap: var(--space-xs);
+      font-weight: 700;
+      text-align: center;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .drop-zone.drag-over {
+      background: var(--primary-container);
+      border-color: var(--primary);
+    }
+
+    .draggable-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-xs);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded-full);
+      background: var(--surface-container-low);
+      border: 2px solid var(--outline);
+      font-weight: 700;
+      cursor: grab;
+      user-select: none;
+      box-shadow: var(--shadow-warm);
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+    .draggable-chip:hover { transform: var(--pop-scale); }
+    .draggable-chip.selected-drag {
+      border-color: var(--primary);
+      background: var(--primary-container);
+    }
+
+    /* Paint Lab Bowl */
+    .mixing-bowl-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-md);
+    }
+    .paint-slot-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+    .paint-slot {
+      width: 94px;
+      height: 94px;
+      border-radius: var(--rounded-full);
+      border: 3px dashed var(--outline);
+      background: var(--surface-container);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+    .paint-slot:hover { transform: var(--pop-scale); }
+
+    /* Chat Bubbles */
+    .chat-stream {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+      padding: var(--space-md);
+      background: var(--surface-container);
+      border-radius: var(--rounded-lg);
+      max-height: 440px;
+      overflow-y: auto;
+    }
+    .chat-row {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--space-sm);
+      max-width: 85%;
+    }
+    .chat-row.right {
+      align-self: flex-end;
+      flex-direction: row-reverse;
+    }
+    .chat-bubble {
+      background: var(--surface-container-low);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      box-shadow: var(--shadow-warm);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+    .chat-row.right .chat-bubble {
+      background: var(--primary-container);
+    }
+
+    /* Memory Cards */
+    .memory-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: var(--space-sm);
+    }
+    .memory-card {
+      min-height: 100px;
+      border-radius: var(--rounded);
+      border: 3px solid var(--outline-variant);
+      background: var(--surface-container);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xs);
+      padding: var(--space-sm);
+      transition: transform var(--dur-short) var(--ease-bounce);
+    }
+    .memory-card:hover { transform: var(--pop-scale); }
+    .memory-card.flipped { background: var(--surface-container-low); border-color: var(--primary); }
+    .memory-card.matched { background: var(--positive-bg); border-color: var(--positive); color: var(--positive); }
+
+    /* Sub-tabs inside Missions / Games */
+    .pill-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+      margin-bottom: var(--space-md);
+    }
+
+    /* Hidden utility */
+    .hidden { display: none !important; }
+
+    /* Certificate card */
+    .certificate-frame {
+      background: var(--surface-container-low);
+      border: 6px double var(--color-gold);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      box-shadow: var(--shadow-warm);
+      display: grid;
+      gap: var(--space-md);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .app-shell { padding: var(--space-sm); gap: var(--space-md); }
+      .storybook-header { padding: var(--space-sm) var(--space-md); }
+      .hero-panel { padding: var(--space-lg) var(--space-md); }
+      .card { padding: var(--space-md); }
+      .chat-row { max-width: 96%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <!-- Persistent Storybook Header -->
+    <header class="storybook-header" aria-label="Storybook Navigation">
+      <div class="brand-group">
+        <button type="button" class="brand-btn" onclick="goToView('story')" title="Go to Opening Story">
+          <i data-lucide="palette" aria-hidden="true"></i>
+          <span>The Magical World of <em>Colours</em></span>
+        </button>
+      </div>
+
+      <nav class="nav-bar" aria-label="Main Sections">
+        <button type="button" class="btn btn-nav" id="nav-story" onclick="goToView('story')">
+          <i data-lucide="book-open" aria-hidden="true"></i> Story
+        </button>
+        <button type="button" class="btn btn-nav" id="nav-map" onclick="goToView('map')">
+          <i data-lucide="map" aria-hidden="true"></i> Adventure Map
+        </button>
+        <button type="button" class="btn btn-nav" id="nav-missions" onclick="goToView('missions')">
+          <i data-lucide="compass" aria-hidden="true"></i> Everyday Life
+        </button>
+        <button type="button" class="btn btn-nav" id="nav-games" onclick="goToView('games')">
+          <i data-lucide="gamepad-2" aria-hidden="true"></i> Mini-Games
+        </button>
+        <button type="button" class="btn btn-nav" id="nav-chat" onclick="goToView('chat')">
+          <i data-lucide="message-circle" aria-hidden="true"></i> Chat
+        </button>
+        <button type="button" class="btn btn-nav" id="nav-trophies" onclick="goToView('trophies')">
+          <i data-lucide="award" aria-hidden="true"></i> Trophy Book
+        </button>
+      </nav>
+
+      <div class="status-strip">
+        <span class="stat-pill" id="companion-pill" title="Your Adventure Companion">
+          <i data-lucide="user-check" aria-hidden="true"></i>
+          <span id="companion-label">Lily</span>
+        </span>
+        <span class="stat-pill" title="Restored Locations">
+          <i data-lucide="sparkles" aria-hidden="true"></i>
+          <span id="restored-count">0/7 Restored</span>
+        </span>
+        <span class="stat-pill" title="Rainbow Stars">
+          <i data-lucide="star" aria-hidden="true"></i>
+          <span id="stars-count">0 Stars</span>
+        </span>
+        <button type="button" class="btn btn-soft" id="sound-toggle-btn" onclick="toggleSound()" aria-pressed="true" style="min-height:38px; padding: 0.25rem 0.75rem;">
+          <i data-lucide="volume-2" aria-hidden="true"></i>
+          <span id="sound-label">Sound On</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Dynamic View Container -->
+    <main id="main-content" tabindex="-1"></main>
+  </div>
+
+  <api-shim></api-shim>
+  <script>
+    // =========================================================================
+    // 1. CORE DATA & PALETTE (using CSS variables so zero inline hex in body)
+    // =========================================================================
+    const COLOURS = {
+      red:    { name: `Red`,    css: `var(--color-red)`,    textLight: true,  example: `apple` },
+      yellow: { name: `Yellow`, css: `var(--color-yellow)`, textLight: false, example: `sun` },
+      blue:   { name: `Blue`,   css: `var(--color-blue)`,   textLight: true,  example: `butterfly` },
+      green:  { name: `Green`,  css: `var(--color-green)`,  textLight: true,  example: `tree` },
+      orange: { name: `Orange`, css: `var(--color-orange)`, textLight: false, example: `carrot` },
+      purple: { name: `Purple`, css: `var(--color-purple)`, textLight: true,  example: `grapes` },
+      pink:   { name: `Pink`,   css: `var(--color-pink)`,   textLight: true,  example: `mushroom` },
+      black:  { name: `Black`,  css: `var(--color-black)`,  textLight: true,  example: `crow` },
+      white:  { name: `White`,  css: `var(--color-white)`,  textLight: false, example: `cloud` },
+      brown:  { name: `Brown`,  css: `var(--color-brown)`,  textLight: true,  example: `coconut` },
+      indigo: { name: `Indigo`, css: `var(--color-indigo)`, textLight: true,  example: `night sky` },
+      violet: { name: `Violet`, css: `var(--color-violet)`, textLight: true,  example: `violet flower` }
+    };
+
+    const CHAPTERS = [
+      { id: `garden`,  num: 1, title: `The Colour Garden`,        subtitle: `Basic colours & garden objects`,     sticker: `Garden Butterfly`,   colorVar: `var(--color-red)` },
+      { id: `forest`,  num: 2, title: `The Rainbow Forest`,       subtitle: `Nature detective & sentences`,       sticker: `Forest Songbird`,    colorVar: `var(--color-green)` },
+      { id: `lab`,     num: 3, title: `The Magic Paint Lab`,      subtitle: `Mix primary & secondary colours`,    sticker: `Magic Paint Potion`, colorVar: `var(--color-purple)` },
+      { id: `market`,  num: 4, title: `The Colourful Fruit Market`, subtitle: `Fruits, counting & shopping`,      sticker: `Sweet Fruit Basket`, colorVar: `var(--color-orange)` },
+      { id: `studio`,  num: 5, title: `The Colourful Art Studio`, subtitle: `Paint your own storybook canvas`,    sticker: `Artist Palette`,     colorVar: `var(--color-pink)` },
+      { id: `toys`,    num: 6, title: `The Toy Wonderland`,       subtitle: `Toys, preferences & mystery box`,    sticker: `Sunny Teddy Bear`,   colorVar: `var(--color-yellow)` },
+      { id: `castle`,  num: 7, title: `The Rainbow Castle`,       subtitle: `7 rainbow colours & the bridge`,     sticker: `Rainbow Crown`,      colorVar: `var(--color-blue)` }
+    ];
+
+    // Persistent Application State
+    let appState = {
+      currentView: `story`,
+      companion: `Lily`,
+      learnerName: `Colour Explorer`,
+      soundEnabled: true,
+      completedChapters: [],
+      stars: 0,
+      savedArtworks: [],
+      currentCanvasColors: {
+        sky: `white`,
+        sun: `white`,
+        roof: `white`,
+        wall: `white`,
+        door: `white`,
+        window: `white`,
+        tree: `white`,
+        grass: `white`,
+        flower1: `white`,
+        flower2: `white`
+      },
+      missions: {
+        aroundMe: [],
+        aroundMeNote: ``,
+        favColour: `purple`,
+        favReason: `Because it is beautiful.`,
+        outfit: { hat: `pink`, shirt: `red`, trousers: `blue`, shoes: `green` },
+        classroomFound: [],
+        classroomNote: ``,
+        collection: { red: `Red Apple`, blue: `Blue Butterfly`, green: `Green Leaf`, yellow: `Yellow Sun` }
+      },
+      gamesCompleted: [],
+      activeMissionTab: 1,
+      activeGameId: 1
+    };
+
+    // Ephemeral activity state (per-view progress)
+    let session = {
+      gardenStep: 0,
+      gardenMode: `explore`,
+      gardenHighlighted: null,
+      gardenSelectedLabel: null,
+      gardenMatchedLabels: [],
+      forestFoundGreen: [],
+      forestSentence1: ``,
+      forestSentence2: ``,
+      labSlotA: null,
+      labSlotB: null,
+      labMixResult: null,
+      labDiscovered: [],
+      marketBasket: [],
+      marketOrderIndex: 0,
+      marketDialogueStep: 0,
+      studioSelectedColour: `yellow`,
+      studioGuidedDone: [],
+      toyRiddleIndex: 0,
+      toyLikedGreen: null,
+      toyGift: null,
+      castleMissingChoice: null,
+      castleBridge: [null, null, null, null, null, null, null],
+      castleSelectedBlock: null,
+      chatScenario: 1,
+      chatMessages: [],
+      // Mini-games ephemeral states
+      g1Target: `red`, g1Popped: 0,
+      g2SelectedObj: null, g2Matched: [],
+      g3Found: [],
+      g4Order: [`blue`, `red`, `yellow`, `violet`, `green`, `orange`, `indigo`], g4Picked: null,
+      g5Target: `purple`, g5Picks: [],
+      g6Cards: [], g6Flipped: [], g6Matched: [],
+      g7TargetShape: `star`, g7TargetCol: `yellow`, g7Painted: {},
+      g8Index: 0,
+      g9Selected: null, g9Sorted: [],
+      g10Found: [],
+      g11Index: 0,
+      g12Stamps: [], g12ActiveColour: `red`, g12ActiveShape: `flower`
+    };
+
+    // =========================================================================
+    // 2. AUDIO ENGINE (Web Speech API + Web Audio API Sound Effects)
+    // =========================================================================
+    let audioCtx = null;
+
+    function getAudioCtx() {
+      if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+        const Ctx = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new Ctx();
+      }
+      if (audioCtx && audioCtx.state === `suspended`) {
+        audioCtx.resume().catch(() => {});
+      }
+      return audioCtx;
+    }
+
+    function playChime(type) {
+      if (!appState.soundEnabled) return;
+      const ctx = getAudioCtx();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+      const notes = type === `win` ? [523.25, 659.25, 783.99, 1046.5]
+                  : type === `pop` ? [660, 880]
+                  : type === `hint` ? [330, 293.66]
+                  : [587.33, 783.99];
+      notes.forEach((freq, idx) => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = type === `hint` ? `triangle` : `sine`;
+        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+        gain.gain.setValueAtTime(0.001, now + idx * 0.08);
+        gain.gain.exponentialRampToValueAtTime(0.11, now + idx * 0.08 + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.24);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now + idx * 0.08);
+        osc.stop(now + idx * 0.08 + 0.26);
+      });
+    }
+
+    function speakText(text) {
+      if (!appState.soundEnabled) return;
+      if (typeof window.speechSynthesis === `undefined`) {
+        playChime(`tap`);
+        return;
+      }
+      try {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = `en-GB`;
+        utter.rate = 0.92;
+        utter.pitch = 1.08;
+        const voices = window.speechSynthesis.getVoices();
+        const engVoice = voices.find(v => v.lang && v.lang.startsWith(`en`));
+        if (engVoice) utter.voice = engVoice;
+        window.speechSynthesis.speak(utter);
+      } catch (e) {
+        playChime(`tap`);
+      }
+    }
+
+    function toggleSound() {
+      appState.soundEnabled = !appState.soundEnabled;
+      if (!appState.soundEnabled && typeof window.speechSynthesis !== `undefined`) {
+        window.speechSynthesis.cancel();
+      }
+      updateHeaderStatus();
+      saveState();
+      if (appState.soundEnabled) {
+        playChime(`pop`);
+        speakText(`Sound is on!`);
+      }
+    }
+
+    // =========================================================================
+    // 3. STATE PERSISTENCE VIA GEMINI NOTEBOOK SHIM API
+    // =========================================================================
+    async function saveState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === `function`) {
+        try {
+          await window.notebookAppApi.setAppState(appState);
+        } catch (e) {
+          // ignore sandbox save errors gracefully
+        }
+      }
+    }
+
+    async function loadState() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === `function`) {
+        try {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === `object`) {
+            appState = Object.assign({}, appState, saved);
+            if (saved.missions) appState.missions = Object.assign({}, appState.missions, saved.missions);
+            if (saved.currentCanvasColors) appState.currentCanvasColors = Object.assign({}, appState.currentCanvasColors, saved.currentCanvasColors);
+          }
+        } catch (e) {
+          // start fresh if unavailable
+        }
+      }
+    }
+
+    function completeChapter(chapterId) {
+      if (!appState.completedChapters.includes(chapterId)) {
+        appState.completedChapters.push(chapterId);
+        appState.stars += 3;
+        playChime(`win`);
+      } else {
+        playChime(`pop`);
+      }
+      updateHeaderStatus();
+      saveState();
+    }
+
+    function awardGameStar(gameId) {
+      if (!appState.gamesCompleted.includes(gameId)) {
+        appState.gamesCompleted.push(gameId);
+        appState.stars += 1;
+      }
+      playChime(`win`);
+      updateHeaderStatus();
+      saveState();
+    }
+
+    function resetAllProgress(btn) {
+      if (btn.dataset.armed !== `true`) {
+        btn.dataset.armed = `true`;
+        btn.textContent = `Click again to confirm reset`;
+        return;
+      }
+      appState.completedChapters = [];
+      appState.stars = 0;
+      appState.savedArtworks = [];
+      appState.gamesCompleted = [];
+      appState.missions.aroundMe = [];
+      appState.missions.classroomFound = [];
+      session.labDiscovered = [];
+      session.gardenStep = 0;
+      session.forestFoundGreen = [];
+      session.castleBridge = [null, null, null, null, null, null, null];
+      saveState();
+      updateHeaderStatus();
+      renderView();
+    }
+
+    // =========================================================================
+    // 4. NAVIGATION & HEADER UPDATES
+    // =========================================================================
+    function goToView(viewName) {
+      appState.currentView = viewName;
+      saveState();
+      renderView();
+      const main = document.getElementById(`main-content`);
+      if (main) main.focus();
+      window.scrollTo({ top: 0, behavior: `smooth` });
+    }
+
+    function updateHeaderStatus() {
+      const compLabel = document.getElementById(`companion-label`);
+      if (compLabel) compLabel.textContent = appState.companion;
+
+      const restoredEl = document.getElementById(`restored-count`);
+      if (restoredEl) restoredEl.textContent = `${appState.completedChapters.length}/7 Restored`;
+
+      const starsEl = document.getElementById(`stars-count`);
+      if (starsEl) starsEl.textContent = `${appState.stars} Stars`;
+
+      const soundBtn = document.getElementById(`sound-toggle-btn`);
+      const soundLabel = document.getElementById(`sound-label`);
+      if (soundBtn && soundLabel) {
+        soundBtn.setAttribute(`aria-pressed`, String(appState.soundEnabled));
+        soundLabel.textContent = appState.soundEnabled ? `Sound On` : `Muted`;
+      }
+
+      const navMap = [`story`, `map`, `missions`, `games`, `chat`, `trophies`];
+      navMap.forEach(id => {
+        const el = document.getElementById(`nav-${id}`);
+        if (!el) return;
+        const isActive = appState.currentView === id || (id === `map` && CHAPTERS.some(c => c.id === appState.currentView));
+        el.classList.toggle(`active`, isActive);
+      });
+    }
+
+    function setCompanion(name) {
+      appState.companion = name;
+      playChime(`pop`);
+      speakText(`Hi! I am ${name}. Let us explore Colourland together!`);
+      updateHeaderStatus();
+      saveState();
+      renderView();
+    }
+
+    function startAdventure() {
+      playChime(`win`);
+      speakText(`Let us restore the colours of Colourland!`);
+      goToView(`map`);
+    }
+
+    // =========================================================================
+    // 5. SHARED SVG CHARACTER & STORYBOOK ILLUSTRATIONS
+    // =========================================================================
+    function renderCompanionAvatar(name, size) {
+      const s = size || 64;
+      if (name === `Oliver`) {
+        return `<svg width="${s}" height="${s}" viewBox="0 0 80 80" aria-hidden="true">
+          <circle cx="40" cy="40" r="36" fill="var(--color-sky-soft)"/>
+          <circle cx="40" cy="42" r="22" fill="var(--surface-container-high)"/>
+          <path d="M18 36 C18 16, 62 16, 62 36 C56 26, 24 26, 18 36 Z" fill="var(--color-brown)"/>
+          <circle cx="33" cy="42" r="3" fill="var(--on-surface)"/>
+          <circle cx="47" cy="42" r="3" fill="var(--on-surface)"/>
+          <path d="M34 51 Q40 56 46 51" stroke="var(--color-red)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M24 68 C24 58, 56 58, 56 68 Z" fill="var(--color-blue)"/>
+        </svg>`;
+      }
+      return `<svg width="${s}" height="${s}" viewBox="0 0 80 80" aria-hidden="true">
+        <circle cx="40" cy="40" r="36" fill="var(--primary-container)"/>
+        <circle cx="20" cy="34" r="9" fill="var(--color-orange)"/>
+        <circle cx="60" cy="34" r="9" fill="var(--color-orange)"/>
+        <circle cx="40" cy="42" r="22" fill="var(--surface-container-low)"/>
+        <path d="M18 36 C20 14, 60 14, 62 36 C52 24, 28 24, 18 36 Z" fill="var(--color-orange)"/>
+        <circle cx="33" cy="42" r="3" fill="var(--on-surface)"/>
+        <circle cx="47" cy="42" r="3" fill="var(--on-surface)"/>
+        <path d="M34 51 Q40 56 46 51" stroke="var(--color-pink)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M24 68 C24 58, 56 58, 56 68 Z" fill="var(--color-pink)"/>
+      </svg>`;
+    }
+
+    function chapterHeaderHtml(chapterId, title, subtitle) {
+      const done = appState.completedChapters.includes(chapterId);
+      return `
+        <div class="chapter-topbar">
+          <div>
+            <button type="button" class="btn btn-soft" onclick="goToView('map')">
+              <i data-lucide="arrow-left" aria-hidden="true"></i> Back to Map
+            </button>
+          </div>
+          <div style="text-align:center; flex:1;">
+            <span class="kicker">Chapter Adventure</span>
+            <h2 style="margin:0;">${title}</h2>
+            <p style="margin:0; color:var(--on-surface-variant); font-size:0.95rem;">${subtitle}</p>
+          </div>
+          <div>
+            ${done
+              ? `<span class="badge badge-positive"><i data-lucide="check-circle" aria-hidden="true"></i> Restored!</span>`
+              : `<span class="badge"><i data-lucide="sparkles" aria-hidden="true"></i> Ready to Explore</span>`}
+          </div>
+        </div>`;
+    }
+
+    // =========================================================================
+    // 6. VIEW RENDERERS
+    // =========================================================================
+    function renderView() {
+      const main = document.getElementById(`main-content`);
+      if (!main) return;
+
+      const v = appState.currentView;
+      if (v === `story`) main.innerHTML = renderStoryView();
+      else if (v === `map`) main.innerHTML = renderMapView();
+      else if (v === `garden`) main.innerHTML = renderGardenChapter();
+      else if (v === `forest`) main.innerHTML = renderForestChapter();
+      else if (v === `lab`) main.innerHTML = renderLabChapter();
+      else if (v === `market`) main.innerHTML = renderMarketChapter();
+      else if (v === `studio`) main.innerHTML = renderStudioChapter();
+      else if (v === `toys`) main.innerHTML = renderToysChapter();
+      else if (v === `castle`) main.innerHTML = renderCastleChapter();
+      else if (v === `missions`) main.innerHTML = renderMissionsView();
+      else if (v === `games`) main.innerHTML = renderGamesView();
+      else if (v === `chat`) main.innerHTML = renderChatView();
+      else if (v === `trophies`) main.innerHTML = renderTrophiesView();
+      else main.innerHTML = renderStoryView();
+
+      updateHeaderStatus();
+      if (window.lucide && typeof window.lucide.createIcons === `function`) {
+        window.lucide.createIcons();
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // VIEW A: OPENING STORY — THE LOST COLOURS
+    // -------------------------------------------------------------------------
+    function renderStoryView() {
+      const restoredCount = appState.completedChapters.length;
+      const pct = Math.round((restoredCount / 7) * 100);
+      const sceneClass = restoredCount === 0 ? `greyscale-mode` : `restored-mode`;
+
+      const storyText = `Welcome to Colourland! Something magical has happened! One morning, Lily and Oliver discover that the colours of their beautiful town have disappeared. The flowers are grey, the trees have lost their green leaves, and the rainbow is completely colourless! The Colour Fairy needs your help. Together, you must explore different places, discover colours, mix magical paints, and bring Colourland back to life. Are you ready to become a Colour Explorer?`;
+
+      return `
+        <section class="hero-panel">
+          <div class="grid-2" style="align-items:center;">
+            <div>
+              <span class="kicker"><i data-lucide="sparkles" aria-hidden="true"></i> Opening Storybook Chapter</span>
+              <h1 class="display">The Lost <em>Colours</em> of Colourland</h1>
+              <p style="color:var(--on-surface-variant); margin-bottom:var(--space-md);">
+                Welcome to Colourland! Something magical has happened! One morning, Lily and Oliver discover that the colours of their beautiful town have disappeared. The flowers are grey, the trees have lost their green leaves, and the rainbow is completely colourless!
+              </p>
+              <p style="font-weight:600; margin-bottom:var(--space-md);">
+                The Colour Fairy needs your help. Explore seven magical places, mix paints, and bring Colourland back to life!
+              </p>
+
+              <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-bottom:var(--space-lg);">
+                <button type="button" class="btn btn-audio" onclick="speakText(\`${storyText}\`)">
+                  <i data-lucide="volume-2" aria-hidden="true"></i> Read Story Aloud
+                </button>
+                <button type="button" class="btn btn-primary" onclick="startAdventure()" style="font-size:1.05rem; padding: 0.75rem 1.75rem;">
+                  <i data-lucide="wand-2" aria-hidden="true"></i> START ADVENTURE
+                </button>
+              </div>
+
+              <div>
+                <div style="display:flex; justify-content:space-between; font-size:0.875rem; font-weight:700; margin-bottom:var(--space-xs);">
+                  <span>Colourland Restoration Progress</span>
+                  <span>${pct}% (${restoredCount}/7 chapters)</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:${pct}%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Illustrated Storybook Town Scene -->
+            <div class="scene-frame">
+              <svg viewBox="0 0 560 380" class="scene-svg" role="img" aria-label="Illustrated town of Colourland with Lily, Oliver, the Colour Fairy, rainbow, garden, houses and paint lab">
+                <!-- Sky -->
+                <rect x="0" y="0" width="560" height="250" fill="${restoredCount >= 7 ? 'var(--color-sky-soft)' : 'var(--color-grey-light)'}"/>
+                <!-- Rainbow (lights up progressively) -->
+                <path d="M 70 230 A 210 175 0 0 1 490 230" fill="none" stroke="${restoredCount >= 1 ? 'var(--color-red)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 80 230 A 200 165 0 0 1 480 230" fill="none" stroke="${restoredCount >= 2 ? 'var(--color-orange)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 90 230 A 190 155 0 0 1 470 230" fill="none" stroke="${restoredCount >= 3 ? 'var(--color-yellow)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 100 230 A 180 145 0 0 1 460 230" fill="none" stroke="${restoredCount >= 4 ? 'var(--color-green)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 110 230 A 170 135 0 0 1 450 230" fill="none" stroke="${restoredCount >= 5 ? 'var(--color-blue)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 120 230 A 160 125 0 0 1 440 230" fill="none" stroke="${restoredCount >= 6 ? 'var(--color-indigo)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+                <path d="M 130 230 A 150 115 0 0 1 430 230" fill="none" stroke="${restoredCount >= 7 ? 'var(--color-violet)' : 'var(--color-grey-muted)'}" stroke-width="10"/>
+
+                <!-- Rolling Hills -->
+                <path d="M0 245 Q140 205 280 240 T560 235 L560 380 L0 380 Z" fill="${restoredCount >= 1 ? 'var(--color-grass-soft)' : 'var(--color-grey-light)'}"/>
+                <path d="M0 285 Q200 255 380 295 T560 280 L560 380 L0 380 Z" fill="${restoredCount >= 2 ? 'var(--color-green)' : 'var(--color-grey-muted)'}" opacity="0.35"/>
+
+                <!-- Houses & Paint Lab -->
+                <g class="${restoredCount >= 4 ? 'restored-mode' : 'greyscale-mode'}">
+                  <rect x="45" y="185" width="76" height="65" rx="6" fill="var(--color-cream)" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <polygon points="38,188 83,150 128,188" fill="var(--color-red)" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <rect x="73" y="214" width="20" height="36" rx="4" fill="var(--color-brown)"/>
+                  <rect x="425" y="180" width="84" height="70" rx="8" fill="var(--primary-container)" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <polygon points="418,182 467,142 516,182" fill="var(--color-purple)" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <circle cx="467" cy="212" r="14" fill="var(--color-yellow)" stroke="var(--on-surface)" stroke-width="2"/>
+                </g>
+
+                <!-- Garden flowers waiting for colours -->
+                <g class="${restoredCount >= 1 ? 'restored-mode' : 'greyscale-mode'}">
+                  <line x1="155" y1="335" x2="155" y2="305" stroke="var(--color-green)" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="155" cy="300" r="10" fill="var(--color-pink)"/>
+                  <circle cx="155" cy="300" r="4" fill="var(--color-yellow)"/>
+                  <line x1="405" y1="340" x2="405" y2="310" stroke="var(--color-green)" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="405" cy="305" r="10" fill="var(--color-blue)"/>
+                  <circle cx="405" cy="305" r="4" fill="var(--color-yellow)"/>
+                </g>
+
+                <!-- Colour Fairy with Magical Paintbrush (waving & animated) -->
+                <g class="anim-float" transform="translate(245, 72)">
+                  <ellipse cx="22" cy="48" rx="18" ry="10" fill="var(--primary-container)" opacity="0.85"/>
+                  <ellipse cx="54" cy="48" rx="18" ry="10" fill="var(--color-sky-soft)" opacity="0.85"/>
+                  <path d="M26 52 L50 52 L58 88 L18 88 Z" fill="var(--color-purple)"/>
+                  <circle cx="38" cy="32" r="15" fill="var(--surface-container-low)" stroke="var(--on-surface)" stroke-width="2"/>
+                  <path d="M23 28 C25 14, 51 14, 53 28 Z" fill="var(--color-yellow)"/>
+                  <circle cx="33" cy="33" r="2.2" fill="var(--on-surface)"/>
+                  <circle cx="43" cy="33" r="2.2" fill="var(--on-surface)"/>
+                  <path d="M34 39 Q38 43 42 39" stroke="var(--color-pink)" stroke-width="2" fill="none"/>
+                  <!-- Magic Paintbrush -->
+                  <line x1="56" y1="62" x2="88" y2="34" stroke="var(--color-brown)" stroke-width="5" stroke-linecap="round"/>
+                  <path d="M84 30 Q98 20 96 36 Q88 42 84 30 Z" fill="var(--color-pink)"/>
+                  <circle cx="98" cy="22" r="4" fill="var(--color-yellow)" class="anim-drop"/>
+                  <circle cx="88" cy="14" r="3" fill="var(--color-blue)" class="anim-drop"/>
+                </g>
+
+                <!-- Floating Paint Drops & Butterflies -->
+                <circle cx="170" cy="95" r="7" fill="var(--color-red)" class="anim-drop"/>
+                <circle cx="395" cy="105" r="6" fill="var(--color-yellow)" class="anim-drop"/>
+                <g class="anim-flutter" transform="translate(135, 165)">
+                  <ellipse cx="0" cy="0" rx="10" ry="7" fill="var(--color-blue)"/>
+                  <ellipse cx="14" cy="0" rx="10" ry="7" fill="var(--color-pink)"/>
+                </g>
+
+                <!-- Lily & Oliver in foreground -->
+                <g transform="translate(195, 232)">
+                  <circle cx="35" cy="28" r="18" fill="var(--surface-container-low)" stroke="var(--on-surface)" stroke-width="2"/>
+                  <path d="M17 24 C19 8, 51 8, 53 24 Z" fill="var(--color-orange)"/>
+                  <circle cx="29" cy="29" r="2.5" fill="var(--on-surface)"/>
+                  <circle cx="41" cy="29" r="2.5" fill="var(--on-surface)"/>
+                  <path d="M30 37 Q35 42 40 37" stroke="var(--color-pink)" stroke-width="2.5" fill="none"/>
+                  <rect x="21" y="48" width="28" height="42" rx="10" fill="var(--color-pink)"/>
+                  <text x="35" y="108" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">Lily</text>
+                </g>
+                <g transform="translate(295, 232)">
+                  <circle cx="35" cy="28" r="18" fill="var(--surface-container-high)" stroke="var(--on-surface)" stroke-width="2"/>
+                  <path d="M17 24 C19 8, 51 8, 53 24 Z" fill="var(--color-brown)"/>
+                  <circle cx="29" cy="29" r="2.5" fill="var(--on-surface)"/>
+                  <circle cx="41" cy="29" r="2.5" fill="var(--on-surface)"/>
+                  <path d="M30 37 Q35 42 40 37" stroke="var(--color-red)" stroke-width="2.5" fill="none"/>
+                  <rect x="21" y="48" width="28" height="42" rx="10" fill="var(--color-blue)"/>
+                  <text x="35" y="108" text-anchor="middle" font-size="13" font-weight="800" fill="var(--on-surface)">Oliver</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <!-- Companion Selector -->
+        <section class="card card-sky" style="margin-top:var(--space-lg);">
+          <span class="kicker">Step 1: Choose Your Adventure Companion</span>
+          <h2>Who will explore Colourland with you?</h2>
+          <div class="grid-2" style="margin-top:var(--space-md);">
+            <button type="button" class="companion-card ${appState.companion === 'Lily' ? 'selected' : ''}" onclick="setCompanion('Lily')">
+              ${renderCompanionAvatar(`Lily`, 72)}
+              <div>
+                <h3 style="margin-bottom:2px;">Lily</h3>
+                <p style="margin:0; color:var(--on-surface-variant); font-size:0.92rem;">Loves flowers, painting rainbows, and pink crayons!</p>
+              </div>
+            </button>
+            <button type="button" class="companion-card ${appState.companion === 'Oliver' ? 'selected' : ''}" onclick="setCompanion('Oliver')">
+              ${renderCompanionAvatar(`Oliver`, 72)}
+              <div>
+                <h3 style="margin-bottom:2px;">Oliver</h3>
+                <p style="margin:0; color:var(--on-surface-variant); font-size:0.92rem;">Loves mixing magic paints, toy trains, and blue butterflies!</p>
+              </div>
+            </button>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // VIEW B: INTERACTIVE ADVENTURE MAP (7 DESTINATIONS)
+    // -------------------------------------------------------------------------
+    function renderMapView() {
+      const doneCount = appState.completedChapters.length;
+      const pct = Math.round((doneCount / 7) * 100);
+
+      const coords = [
+        { id: `garden`, x: 95,  y: 235 },
+        { id: `forest`, x: 205, y: 120 },
+        { id: `lab`,    x: 345, y: 200 },
+        { id: `market`, x: 465, y: 105 },
+        { id: `studio`, x: 585, y: 215 },
+        { id: `toys`,   x: 705, y: 120 },
+        { id: `castle`, x: 815, y: 205 }
+      ];
+
+      const mapNodes = coords.map((pt, i) => {
+        const ch = CHAPTERS[i];
+        const isDone = appState.completedChapters.includes(ch.id);
+        return `
+          <g class="interactive-obj" onclick="goToView('${ch.id}')" role="button" tabindex="0" aria-label="Enter Chapter ${ch.num}: ${ch.title}">
+            <circle cx="${pt.x}" cy="${pt.y}" r="36" fill="${isDone ? ch.colorVar : 'var(--surface-container-low)'}" stroke="${isDone ? 'var(--on-surface)' : 'var(--outline)'}" stroke-width="3.5"/>
+            <text x="${pt.x}" y="${pt.y + 6}" text-anchor="middle" font-size="20" font-weight="900" fill="${isDone && ch.id !== 'toys' ? 'var(--color-white)' : 'var(--on-surface)'}">${ch.num}</text>
+            <rect x="${pt.x - 62}" y="${pt.y + 42}" width="124" height="28" rx="14" fill="var(--surface-container-low)" stroke="${isDone ? ch.colorVar : 'var(--outline-variant)'}" stroke-width="2"/>
+            <text x="${pt.x}" y="${pt.y + 60}" text-anchor="middle" font-size="11.5" font-weight="800" fill="var(--on-surface)">${ch.title.replace('The ', '')}</text>
+            ${isDone ? `<circle cx="${pt.x + 26}" cy="${pt.y - 26}" r="12" fill="var(--color-yellow)" stroke="var(--on-surface)" stroke-width="2"/><text x="${pt.x + 26}" y="${pt.y - 22}" text-anchor="middle" font-size="12" font-weight="900" fill="var(--on-surface)">★</text>` : ``}
+          </g>`;
+      }).join(``);
+
+      const cardsHtml = CHAPTERS.map(ch => {
+        const isDone = appState.completedChapters.includes(ch.id);
+        return `
+          <article class="card" style="display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-sm); border-top: 6px solid ${isDone ? ch.colorVar : 'var(--outline-variant)'};">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-xs);">
+                <span class="kicker">Chapter ${ch.num}</span>
+                ${isDone ? `<span class="badge badge-positive">Restored ★</span>` : `<span class="badge">Sticker: ${ch.sticker}</span>`}
+              </div>
+              <h3>${ch.title}</h3>
+              <p style="margin:0; font-size:0.92rem; color:var(--on-surface-variant);">${ch.subtitle}</p>
+            </div>
+            <button type="button" class="btn ${isDone ? 'btn-soft' : 'btn-primary'}" onclick="goToView('${ch.id}')">
+              <i data-lucide="${isDone ? 'rotate-ccw' : 'compass'}" aria-hidden="true"></i>
+              ${isDone ? 'Play Again' : 'Explore Chapter'}
+            </button>
+          </article>`;
+      }).join(``);
+
+      return `
+        <section class="hero-panel">
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-end; gap:var(--space-md); margin-bottom:var(--space-md);">
+            <div>
+              <span class="kicker">Colourland World Map</span>
+              <h1 class="display" style="margin-bottom:4px;">Choose Your <em>Adventure</em></h1>
+              <p style="margin:0; color:var(--on-surface-variant);">Tap any destination on the map to restore its colours and earn a sticker!</p>
+            </div>
+            <div style="min-width:240px;">
+              <div style="display:flex; justify-content:space-between; font-size:0.85rem; font-weight:700; margin-bottom:4px;">
+                <span>Map Restored</span><span>${pct}%</span>
+              </div>
+              <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
+            </div>
+          </div>
+
+          <div class="scene-frame" style="margin-bottom:var(--space-lg);">
+            <svg viewBox="0 0 910 340" class="scene-svg" role="img" aria-label="Interactive Map of Colourland with 7 destinations">
+              <rect x="0" y="0" width="910" height="340" fill="${doneCount >= 4 ? 'var(--color-sky-soft)' : 'var(--surface-container)'}"/>
+              <path d="M0 170 Q220 120 450 175 T910 155 L910 340 L0 340 Z" fill="${doneCount >= 1 ? 'var(--color-grass-soft)' : 'var(--surface-container-high)'}"/>
+              <!-- Winding Storybook Path -->
+              <path d="M 95 235 Q 150 130 205 120 T 345 200 T 465 105 T 585 215 T 705 120 T 815 205"
+                    fill="none" stroke="var(--surface-container-low)" stroke-width="18" stroke-linecap="round"/>
+              <path d="M 95 235 Q 150 130 205 120 T 345 200 T 465 105 T 585 215 T 705 120 T 815 205"
+                    fill="none" stroke="var(--outline)" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round"/>
+              ${mapNodes}
+            </svg>
+          </div>
+
+          <div class="grid-4">${cardsHtml}</div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 1: THE COLOUR GARDEN
+    // -------------------------------------------------------------------------
+    const GARDEN_OBJECTS = [
+      { id: `flower`,    colour: `red`,    label: `Red Flower`,    phrase: `It is a red flower! Red.` },
+      { id: `butterfly`, colour: `blue`,   label: `Blue Butterfly`,phrase: `It is a blue butterfly! Blue.` },
+      { id: `sun`,       colour: `yellow`, label: `Yellow Sun`,    phrase: `It is a yellow sun! Yellow.` },
+      { id: `leaf`,      colour: `green`,  label: `Green Leaf`,    phrase: `It is a green leaf! Green.` },
+      { id: `carrot`,    colour: `orange`, label: `Orange Carrot`, phrase: `It is an orange carrot! Orange.` },
+      { id: `tulip`,     colour: `purple`, label: `Purple Flower`, phrase: `It is a purple flower! Purple.` },
+      { id: `mushroom`,  colour: `pink`,   label: `Pink Mushroom`, phrase: `It is a pink mushroom! Pink.` },
+      { id: `crow`,      colour: `black`,  label: `Black Bird`,    phrase: `It is a black bird! Black.` },
+      { id: `cloud`,     colour: `white`,  label: `White Cloud`,   phrase: `It is a white cloud! White.` },
+      { id: `trunk`,     colour: `brown`,  label: `Brown Tree`,    phrase: `It is a brown tree trunk! Brown.` }
+    ];
+    const GARDEN_QUESTS = [`red`, `blue`, `yellow`, `green`, `pink`, `brown`];
+
+    function gardenClickObj(objId) {
+      const obj = GARDEN_OBJECTS.find(o => o.id === objId);
+      if (!obj) return;
+      const fb = document.getElementById(`garden-feedback`);
+
+      if (session.gardenMode === `explore`) {
+        playChime(`pop`);
+        speakText(obj.phrase);
+        session.gardenHighlighted = obj.colour;
+        if (fb) {
+          fb.className = `feedback-box success`;
+          fb.innerHTML = `<span>${obj.phrase}</span><button type="button" class="btn btn-audio" onclick="speakText(\`${obj.phrase}\`)">Hear Again</button>`;
+        }
+        renderGardenHighlight();
+      } else if (session.gardenMode === `quest`) {
+        const target = GARDEN_QUESTS[session.gardenStep];
+        if (obj.colour === target) {
+          playChime(`win`);
+          const msg = `Wonderful! You found something ${target}!`;
+          speakText(msg);
+          session.gardenStep++;
+          if (session.gardenStep >= GARDEN_QUESTS.length) {
+            completeChapter(`garden`);
+            renderView();
+          } else {
+            renderView();
+            const nfb = document.getElementById(`garden-feedback`);
+            if (nfb) {
+              nfb.className = `feedback-box success`;
+              nfb.textContent = msg;
+            }
+          }
+        } else {
+          playChime(`hint`);
+          const msg = `That is ${obj.colour}! Try to find something ${target}.`;
+          speakText(msg);
+          if (fb) {
+            fb.className = `feedback-box hint`;
+            fb.textContent = msg;
+          }
+        }
+      } else if (session.gardenMode === `match`) {
+        if (!session.gardenSelectedLabel) {
+          if (fb) { fb.className = `feedback-box hint`; fb.textContent = `First pick a colour label below, then tap its matching object!`; }
+          return;
+        }
+        if (obj.colour === session.gardenSelectedLabel) {
+          if (!session.gardenMatchedLabels.includes(obj.colour)) {
+            session.gardenMatchedLabels.push(obj.colour);
+          }
+          session.gardenSelectedLabel = null;
+          playChime(`win`);
+          speakText(`Great match! ${obj.label}!`);
+          if (session.gardenMatchedLabels.length >= 6) {
+            completeChapter(`garden`);
+          }
+          renderView();
+        } else {
+          playChime(`hint`);
+          speakText(`Almost there! Try another object.`);
+          if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Almost there! That is ${obj.colour}.`; }
+        }
+      }
+    }
+
+    function gardenSelectHighlight(colour) {
+      session.gardenHighlighted = colour;
+      playChime(`pop`);
+      speakText(COLOURS[colour].name);
+      renderGardenHighlight();
+    }
+
+    function renderGardenHighlight() {
+      GARDEN_OBJECTS.forEach(o => {
+        const el = document.getElementById(`g-obj-${o.id}`);
+        if (el) el.classList.toggle(`highlighted`, session.gardenHighlighted === o.colour);
+      });
+    }
+
+    function setGardenMode(mode) {
+      session.gardenMode = mode;
+      session.gardenHighlighted = null;
+      renderView();
+    }
+
+    function pickGardenLabel(colour) {
+      session.gardenSelectedLabel = colour;
+      playChime(`pop`);
+      speakText(COLOURS[colour].name);
+      renderView();
+    }
+
+    function renderGardenChapter() {
+      const swatches = Object.keys(COLOURS).slice(0, 10).map(k => `
+        <button type="button" class="colour-chip ${session.gardenHighlighted === k ? 'selected' : ''}" onclick="gardenSelectHighlight('${k}')">
+          <span class="colour-dot" style="background:${COLOURS[k].css};"></span>
+          <span>${COLOURS[k].name}</span>
+        </button>`).join(``);
+
+      const currentQuest = GARDEN_QUESTS[Math.min(session.gardenStep, GARDEN_QUESTS.length - 1)];
+      const matchLabels = [`red`, `blue`, `yellow`, `green`, `orange`, `purple`];
+
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`garden`, `Chapter 1: The Colour Garden`, `Tap objects to hear their names, find hidden colours, and match labels!`)}
+
+          <div class="pill-tabs">
+            <button type="button" class="btn btn-nav ${session.gardenMode === 'explore' ? 'active' : ''}" onclick="setGardenMode('explore')">1. Explore & Listen</button>
+            <button type="button" class="btn btn-nav ${session.gardenMode === 'quest' ? 'active' : ''}" onclick="setGardenMode('quest')">2. Colour Quest (${session.gardenStep}/${GARDEN_QUESTS.length})</button>
+            <button type="button" class="btn btn-nav ${session.gardenMode === 'match' ? 'active' : ''}" onclick="setGardenMode('match')">3. Label Match (${session.gardenMatchedLabels.length}/6)</button>
+          </div>
+
+          ${session.gardenMode === `quest` ? `
+            <div class="feedback-box" style="margin-bottom:var(--space-md); background:var(--primary-container);">
+              <span>
+                ${session.gardenStep < GARDEN_QUESTS.length
+                  ? `Instruction: Find something <strong>${currentQuest.toUpperCase()}</strong> in the garden!`
+                  : `Amazing! You found every colour in the garden!`}
+              </span>
+              ${session.gardenStep < GARDEN_QUESTS.length ? `<button type="button" class="btn btn-audio" onclick="speakText('Find something ${currentQuest}!')">Hear Instruction</button>` : ``}
+            </div>` : ``}
+
+          ${session.gardenMode === `match` ? `
+            <div style="margin-bottom:var(--space-md);">
+              <p style="margin:0 0 var(--space-xs); font-weight:700;">Tap a colour label, then tap the matching object in the garden:</p>
+              <div class="swatch-row">
+                ${matchLabels.map(c => {
+                  const matched = session.gardenMatchedLabels.includes(c);
+                  return `<button type="button" class="draggable-chip ${session.gardenSelectedLabel === c ? 'selected-drag' : ''}" ${matched ? 'disabled' : ''} onclick="pickGardenLabel('${c}')">
+                    <span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name} ${matched ? '✓' : ''}
+                  </button>`;
+                }).join(``)}
+              </div>
+            </div>` : ``}
+
+          <!-- Illustrated Garden SVG -->
+          <div class="scene-frame" style="margin-bottom:var(--space-md);">
+            <svg viewBox="0 0 700 340" class="scene-svg" role="img" aria-label="Interactive Colour Garden with ten colourful objects">
+              <rect x="0" y="0" width="700" height="230" fill="var(--color-sky-soft)"/>
+              <path d="M0 220 Q180 190 380 220 T700 210 L700 340 L0 340 Z" fill="var(--color-grass-soft)"/>
+
+              <!-- White Cloud -->
+              <g id="g-obj-cloud" class="interactive-obj" onclick="gardenClickObj('cloud')">
+                <path d="M120 75 Q120 50 148 52 Q165 36 188 52 Q212 52 212 75 Q212 92 190 92 L138 92 Q120 92 120 75 Z" fill="var(--color-white)" stroke="var(--outline-variant)" stroke-width="2.5"/>
+              </g>
+
+              <!-- Yellow Sun -->
+              <g id="g-obj-sun" class="interactive-obj" onclick="gardenClickObj('sun')">
+                <circle cx="600" cy="65" r="34" fill="var(--color-yellow)" stroke="var(--color-orange)" stroke-width="3"/>
+              </g>
+
+              <!-- Brown Tree Trunk + Green Leaves -->
+              <g id="g-obj-trunk" class="interactive-obj" onclick="gardenClickObj('trunk')">
+                <rect x="520" y="150" width="32" height="120" rx="6" fill="var(--color-brown)"/>
+              </g>
+              <g id="g-obj-leaf" class="interactive-obj" onclick="gardenClickObj('leaf')">
+                <circle cx="536" cy="135" r="48" fill="var(--color-green)"/>
+                <circle cx="502" cy="150" r="32" fill="var(--color-green)"/>
+                <circle cx="570" cy="150" r="32" fill="var(--color-green)"/>
+              </g>
+
+              <!-- Black Bird -->
+              <g id="g-obj-crow" class="interactive-obj" onclick="gardenClickObj('crow')">
+                <ellipse cx="445" cy="112" rx="18" ry="12" fill="var(--color-black)"/>
+                <circle cx="458" cy="103" r="9" fill="var(--color-black)"/>
+                <polygon points="466,102 476,106 466,109" fill="var(--color-orange)"/>
+                <circle cx="460" cy="101" r="2" fill="var(--color-white)"/>
+              </g>
+
+              <!-- Blue Butterfly -->
+              <g id="g-obj-butterfly" class="interactive-obj anim-flutter" onclick="gardenClickObj('butterfly')">
+                <ellipse cx="290" cy="125" rx="18" ry="13" fill="var(--color-blue)"/>
+                <ellipse cx="322" cy="125" rx="18" ry="13" fill="var(--color-blue)"/>
+                <rect x="303" y="114" width="6" height="24" rx="3" fill="var(--on-surface)"/>
+              </g>
+
+              <!-- Red Flower -->
+              <g id="g-obj-flower" class="interactive-obj" onclick="gardenClickObj('flower')">
+                <line x1="115" y1="300" x2="115" y2="230" stroke="var(--color-green)" stroke-width="6" stroke-linecap="round"/>
+                <circle cx="100" cy="222" r="14" fill="var(--color-red)"/>
+                <circle cx="130" cy="222" r="14" fill="var(--color-red)"/>
+                <circle cx="115" cy="206" r="14" fill="var(--color-red)"/>
+                <circle cx="115" cy="238" r="14" fill="var(--color-red)"/>
+                <circle cx="115" cy="222" r="10" fill="var(--color-yellow)"/>
+              </g>
+
+              <!-- Purple Flower -->
+              <g id="g-obj-tulip" class="interactive-obj" onclick="gardenClickObj('tulip')">
+                <line x1="220" y1="305" x2="220" y2="240" stroke="var(--color-green)" stroke-width="6" stroke-linecap="round"/>
+                <path d="M198 220 Q220 260 242 220 L232 202 L220 218 L208 202 Z" fill="var(--color-purple)"/>
+              </g>
+
+              <!-- Orange Carrot -->
+              <g id="g-obj-carrot" class="interactive-obj" onclick="gardenClickObj('carrot')">
+                <path d="M325 255 L345 315 L365 255 Z" fill="var(--color-orange)"/>
+                <path d="M335 255 Q335 235 345 245 Q355 230 355 255" stroke="var(--color-green)" stroke-width="5" fill="none" stroke-linecap="round"/>
+              </g>
+
+              <!-- Pink Mushroom -->
+              <g id="g-obj-mushroom" class="interactive-obj" onclick="gardenClickObj('mushroom')">
+                <rect x="435" y="268" width="22" height="36" rx="8" fill="var(--surface-container-low)"/>
+                <path d="M412 272 C412 232, 480 232, 480 272 Z" fill="var(--color-pink)"/>
+                <circle cx="432" cy="256" r="5" fill="var(--color-white)"/>
+                <circle cx="458" cy="252" r="4" fill="var(--color-white)"/>
+              </g>
+            </svg>
+          </div>
+
+          <div id="garden-feedback" class="feedback-box" style="margin-bottom:var(--space-md);">
+            <span>Tap any object in the garden to hear its English name and colour!</span>
+          </div>
+
+          <div class="swatch-row">${swatches}</div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 2: THE RAINBOW FOREST
+    // -------------------------------------------------------------------------
+    function forestClick(id, colour, label) {
+      const msg = `I can see a ${colour} ${label}!`;
+      playChime(`pop`);
+      speakText(msg);
+
+      if (colour === `green` && !session.forestFoundGreen.includes(id)) {
+        session.forestFoundGreen.push(id);
+        if (session.forestFoundGreen.length === 3) {
+          playChime(`win`);
+          speakText(`Fantastic! You found three green things in the forest!`);
+        }
+      }
+      if (session.forestFoundGreen.length >= 3 && session.forestSentence1 === `yellow` && session.forestSentence2 === `blue`) {
+        completeChapter(`forest`);
+      }
+      renderView();
+      const fb = document.getElementById(`forest-feedback`);
+      if (fb) {
+        fb.className = `feedback-box success`;
+        fb.textContent = `${msg} (${session.forestFoundGreen.length}/3 green things found)`;
+      }
+    }
+
+    function forestCheckSentences() {
+      const s1 = document.getElementById(`forest-q1`);
+      const s2 = document.getElementById(`forest-q2`);
+      if (!s1 || !s2) return;
+      session.forestSentence1 = s1.value;
+      session.forestSentence2 = s2.value;
+      const fb = document.getElementById(`forest-feedback`);
+      if (s1.value === `yellow` && s2.value === `blue`) {
+        playChime(`win`);
+        speakText(`The bird is yellow. I can see a blue butterfly!`);
+        if (session.forestFoundGreen.length >= 3) completeChapter(`forest`);
+        if (fb) { fb.className = `feedback-box success`; fb.textContent = `Wonderful sentences! "The bird is yellow. I can see a blue butterfly."`; }
+      } else {
+        playChime(`hint`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Look closely at the forest picture! What colour is the bird? What colour is the butterfly?`; }
+      }
+    }
+
+    function renderForestChapter() {
+      const gCount = session.forestFoundGreen.length;
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`forest`, `Chapter 2: The Rainbow Forest`, `Be a Colour Detective! Find 3 green things and describe the forest.`)}
+
+          <div class="feedback-box ${gCount >= 3 ? 'success' : ''}" style="margin-bottom:var(--space-md);">
+            <span><strong>Colour Detective Mission:</strong> Can you find <strong>three green things</strong> in the forest? (${gCount}/3 found)</span>
+            <button type="button" class="btn btn-audio" onclick="speakText('Can you find three green things?')">Hear Clue</button>
+          </div>
+
+          <div class="scene-frame" style="margin-bottom:var(--space-md);">
+            <svg viewBox="0 0 700 320" class="scene-svg" role="img" aria-label="The Rainbow Forest with green trees, ferns, yellow bird, blue butterfly, purple mushrooms and rainbow">
+              <rect x="0" y="0" width="700" height="225" fill="var(--color-sky-soft)"/>
+              <path d="M 140 220 A 210 175 0 0 1 560 220" fill="none" stroke="var(--color-red)" stroke-width="8"/>
+              <path d="M 148 220 A 202 167 0 0 1 552 220" fill="none" stroke="var(--color-orange)" stroke-width="8"/>
+              <path d="M 156 220 A 194 159 0 0 1 544 220" fill="none" stroke="var(--color-yellow)" stroke-width="8"/>
+              <path d="M 164 220 A 186 151 0 0 1 536 220" fill="none" stroke="var(--color-green)" stroke-width="8"/>
+              <path d="M 172 220 A 178 143 0 0 1 528 220" fill="none" stroke="var(--color-blue)" stroke-width="8"/>
+              <rect x="0" y="220" width="700" height="100" fill="var(--color-grass-soft)"/>
+
+              <!-- Green Object 1: Pine Tree -->
+              <g class="interactive-obj ${session.forestFoundGreen.includes('tree') ? 'highlighted' : ''}" onclick="forestClick('tree', 'green', 'tree')">
+                <rect x="95" y="195" width="20" height="50" fill="var(--color-brown)"/>
+                <polygon points="105,75 55,205 155,205" fill="var(--color-green)"/>
+              </g>
+              <!-- Green Object 2: Forest Bush -->
+              <g class="interactive-obj ${session.forestFoundGreen.includes('bush') ? 'highlighted' : ''}" onclick="forestClick('bush', 'green', 'bush')">
+                <circle cx="565" cy="220" r="32" fill="var(--color-green)"/>
+                <circle cx="605" cy="225" r="26" fill="var(--color-green)"/>
+              </g>
+              <!-- Green Object 3: Leafy Fern -->
+              <g class="interactive-obj ${session.forestFoundGreen.includes('fern') ? 'highlighted' : ''}" onclick="forestClick('fern', 'green', 'fern')">
+                <path d="M335 280 Q315 245 295 255 M335 280 Q335 235 335 235 M335 280 Q355 245 375 255" stroke="var(--color-green)" stroke-width="9" fill="none" stroke-linecap="round"/>
+              </g>
+
+              <!-- Yellow Bird -->
+              <g class="interactive-obj" onclick="forestClick('bird', 'yellow', 'bird')">
+                <circle cx="245" cy="115" r="18" fill="var(--color-yellow)"/>
+                <polygon points="262,112 275,116 262,120" fill="var(--color-orange)"/>
+                <circle cx="250" cy="110" r="2.5" fill="var(--on-surface)"/>
+              </g>
+
+              <!-- Blue Butterfly -->
+              <g class="interactive-obj anim-flutter" onclick="forestClick('butterfly', 'blue', 'butterfly')">
+                <ellipse cx="420" cy="130" rx="16" ry="11" fill="var(--color-blue)"/>
+                <ellipse cx="448" cy="130" rx="16" ry="11" fill="var(--color-blue)"/>
+                <rect x="431" y="120" width="6" height="22" rx="3" fill="var(--on-surface)"/>
+              </g>
+
+              <!-- Red Flowers & Purple Mushrooms & Orange Leaves -->
+              <g class="interactive-obj" onclick="forestClick('rflower', 'red', 'flower')">
+                <circle cx="215" cy="255" r="13" fill="var(--color-red)"/>
+                <circle cx="215" cy="255" r="5" fill="var(--color-yellow)"/>
+              </g>
+              <g class="interactive-obj" onclick="forestClick('pmush', 'purple', 'mushroom')">
+                <rect x="455" y="255" width="14" height="24" rx="5" fill="var(--surface-container-low)"/>
+                <path d="M442 258 C442 232, 482 232, 482 258 Z" fill="var(--color-purple)"/>
+              </g>
+              <g class="interactive-obj" onclick="forestClick('oleaf', 'orange', 'leaf')">
+                <ellipse cx="155" cy="275" rx="16" ry="9" fill="var(--color-orange)" transform="rotate(-20 155 275)"/>
+              </g>
+            </svg>
+          </div>
+
+          <div id="forest-feedback" class="feedback-box" style="margin-bottom:var(--space-md);">
+            <span>Tap objects in the forest to listen and discover!</span>
+          </div>
+
+          <div class="card card-sky">
+            <h3>Describe the Forest</h3>
+            <div class="grid-2" style="align-items:end; margin-top:var(--space-sm);">
+              <div class="field-group">
+                <label for="forest-q1">What colour is the bird? The bird is…</label>
+                <select id="forest-q1">
+                  <option value="">Choose colour…</option>
+                  <option value="yellow" ${session.forestSentence1 === 'yellow' ? 'selected' : ''}>yellow</option>
+                  <option value="purple" ${session.forestSentence1 === 'purple' ? 'selected' : ''}>purple</option>
+                  <option value="red" ${session.forestSentence1 === 'red' ? 'selected' : ''}>red</option>
+                </select>
+              </div>
+              <div class="field-group">
+                <label for="forest-q2">I can see a ____ butterfly.</label>
+                <select id="forest-q2">
+                  <option value="">Choose colour…</option>
+                  <option value="orange" ${session.forestSentence2 === 'orange' ? 'selected' : ''}>orange</option>
+                  <option value="blue" ${session.forestSentence2 === 'blue' ? 'selected' : ''}>blue</option>
+                  <option value="green" ${session.forestSentence2 === 'green' ? 'selected' : ''}>green</option>
+                </select>
+              </div>
+            </div>
+            <div style="margin-top:var(--space-md); display:flex; gap:var(--space-sm); flex-wrap:wrap;">
+              <button type="button" class="btn btn-primary" onclick="forestCheckSentences()">Check My Sentences</button>
+              <button type="button" class="btn btn-audio" onclick="speakText('What colour is it? The tree is green!')">Hear Example</button>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 3: THE MAGIC PAINT LABORATORY
+    // -------------------------------------------------------------------------
+    function labPutPaint(colour) {
+      playChime(`pop`);
+      speakText(COLOURS[colour].name);
+      if (!session.labSlotA) session.labSlotA = colour;
+      else if (!session.labSlotB) session.labSlotB = colour;
+      else { session.labSlotA = colour; session.labSlotB = null; }
+      session.labMixResult = null;
+      renderView();
+    }
+
+    function labDropPaint(ev, slotName) {
+      ev.preventDefault();
+      const colour = ev.dataTransfer ? ev.dataTransfer.getData(`text/plain`) : null;
+      if (!colour || !COLOURS[colour]) return;
+      if (slotName === `A`) session.labSlotA = colour;
+      else session.labSlotB = colour;
+      session.labMixResult = null;
+      playChime(`pop`);
+      renderView();
+    }
+
+    function labAllowDrop(ev) {
+      ev.preventDefault();
+    }
+
+    function labDragStart(ev, colour) {
+      if (ev.dataTransfer) ev.dataTransfer.setData(`text/plain`, colour);
+    }
+
+    function labMixColours() {
+      const a = session.labSlotA;
+      const b = session.labSlotB;
+      if (!a || !b) {
+        playChime(`hint`);
+        const fb = document.getElementById(`lab-feedback`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Choose two paint bottles first!`; }
+        return;
+      }
+      const pair = [a, b].sort().join(`+`);
+      let result = a;
+      let explanation = `Two ${a} paints make bright ${a}!`;
+
+      if (pair === `red+yellow`) {
+        result = `orange`;
+        explanation = `Red and yellow make orange!`;
+      } else if (pair === `blue+yellow`) {
+        result = `green`;
+        explanation = `Blue and yellow make green!`;
+      } else if (pair === `blue+red`) {
+        result = `purple`;
+        explanation = `Red and blue make purple!`;
+      } else if (pair === `red+white`) {
+        result = `pink`;
+        explanation = `Red and white make soft pink!`;
+      }
+
+      session.labMixResult = result;
+      if ([`orange`, `green`, `purple`].includes(result) && !session.labDiscovered.includes(result)) {
+        session.labDiscovered.push(result);
+      }
+
+      playChime(`win`);
+      speakText(`Wow! ${explanation}`);
+
+      if (session.labDiscovered.length >= 3) {
+        completeChapter(`lab`);
+      }
+      renderView();
+      const fb = document.getElementById(`lab-feedback`);
+      if (fb) {
+        fb.className = `feedback-box success`;
+        fb.textContent = `Wow! ${explanation}`;
+      }
+    }
+
+    function labClear() {
+      session.labSlotA = null;
+      session.labSlotB = null;
+      session.labMixResult = null;
+      renderView();
+    }
+
+    function renderLabChapter() {
+      const bottles = [`red`, `yellow`, `blue`, `white`];
+      const nextChallenge = !session.labDiscovered.includes(`orange`) ? `Challenge 1: Mix Red and Yellow to make Orange!`
+                          : !session.labDiscovered.includes(`green`) ? `Challenge 2: What happens when you mix Blue and Yellow?`
+                          : !session.labDiscovered.includes(`purple`) ? `Challenge 3: Can you make Purple?`
+                          : `Free Experimentation! You discovered Orange, Green, and Purple!`;
+
+      const bowlFill = session.labMixResult ? COLOURS[session.labMixResult].css : `var(--surface-container-high)`;
+
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`lab`, `Chapter 3: The Magic Paint Laboratory`, `Experiment by mixing primary colours (Red, Yellow, Blue) inside the cauldron!`)}
+
+          <div class="feedback-box ${session.labDiscovered.length >= 3 ? 'success' : ''}" style="margin-bottom:var(--space-md);">
+            <span><strong>${nextChallenge}</strong> (${session.labDiscovered.length}/3 Secondary Colours Discovered)</span>
+            <button type="button" class="btn btn-audio" onclick="speakText(\`${nextChallenge}\`)">Hear Challenge</button>
+          </div>
+
+          <div class="grid-2" style="align-items:center;">
+            <!-- Paint Bottles Shelf -->
+            <div class="card card-grape">
+              <h3>1. Drag or Tap Two Paint Bottles</h3>
+              <p style="margin-top:0; color:var(--on-surface-variant); font-size:0.9rem;">Primary colours are Red, Yellow, and Blue. Try White too!</p>
+              <div class="swatch-row" style="margin-top:var(--space-md);">
+                ${bottles.map(c => `
+                  <button type="button" class="draggable-chip" draggable="true" ondragstart="labDragStart(event, '${c}')" onclick="labPutPaint('${c}')" style="padding: 0.6rem 1.1rem;">
+                    <span class="colour-dot" style="background:${COLOURS[c].css};"></span>
+                    <span>${COLOURS[c].name}</span>
+                  </button>`).join(``)}
+              </div>
+
+              <div style="margin-top:var(--space-lg);">
+                <span class="kicker">Discovered Secondary Colours</span>
+                <div class="swatch-row">
+                  ${[`orange`, `green`, `purple`].map(sec => {
+                    const found = session.labDiscovered.includes(sec);
+                    return `<span class="badge ${found ? 'badge-positive' : ''}">
+                      <span class="colour-dot" style="width:14px; height:14px; background:${found ? COLOURS[sec].css : 'var(--color-grey-light)'};"></span>
+                      ${found ? COLOURS[sec].name : '???'}
+                    </span>`;
+                  }).join(``)}
+                </div>
+              </div>
+            </div>
+
+            <!-- Mixing Bowl & Result -->
+            <div class="card card-sky mixing-bowl-wrap">
+              <h3>2. Magical Mixing Cauldron</h3>
+              <div class="paint-slot-row">
+                <div class="paint-slot" ondragover="labAllowDrop(event)" ondrop="labDropPaint(event, 'A')" onclick="labClear()" style="background:${session.labSlotA ? COLOURS[session.labSlotA].css : 'var(--surface-container)'}; color:${session.labSlotA && COLOURS[session.labSlotA].textLight ? 'var(--color-white)' : 'var(--on-surface)'};">
+                  ${session.labSlotA ? COLOURS[session.labSlotA].name : 'Drop Paint 1'}
+                </div>
+                <span style="font-size:1.5rem; font-weight:900;">+</span>
+                <div class="paint-slot" ondragover="labAllowDrop(event)" ondrop="labDropPaint(event, 'B')" onclick="labClear()" style="background:${session.labSlotB ? COLOURS[session.labSlotB].css : 'var(--surface-container)'}; color:${session.labSlotB && COLOURS[session.labSlotB].textLight ? 'var(--color-white)' : 'var(--on-surface)'};">
+                  ${session.labSlotB ? COLOURS[session.labSlotB].name : 'Drop Paint 2'}
+                </div>
+              </div>
+
+              <!-- SVG Cauldron -->
+              <svg viewBox="0 0 220 130" width="200" height="120" aria-hidden="true">
+                <ellipse cx="110" cy="48" rx="68" ry="20" fill="${bowlFill}" stroke="var(--on-surface)" stroke-width="3"/>
+                <path d="M42 48 C42 115, 178 115, 178 48 Z" fill="var(--on-surface-variant)"/>
+                <ellipse cx="110" cy="48" rx="62" ry="15" fill="${bowlFill}"/>
+                ${session.labMixResult ? `<text x="110" y="90" text-anchor="middle" font-size="16" font-weight="900" fill="var(--color-white)">${COLOURS[session.labMixResult].name.toUpperCase()}!</text>` : ``}
+              </svg>
+
+              <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap; justify-content:center;">
+                <button type="button" class="btn btn-primary" onclick="labMixColours()">
+                  <i data-lucide="sparkles" aria-hidden="true"></i> MIX COLOURS
+                </button>
+                <button type="button" class="btn btn-soft" onclick="labClear()">Clear Bowl</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="lab-feedback" class="feedback-box" style="margin-top:var(--space-md);">
+            <span>Select two colours and press MIX COLOURS!</span>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 4: THE COLOURFUL FRUIT MARKET
+    // -------------------------------------------------------------------------
+    const MARKET_FRUITS = [
+      { id: `apple`,      name: `Red Apple`,       colour: `red`,    plural: `red apples` },
+      { id: `banana`,     name: `Yellow Banana`,   colour: `yellow`, plural: `yellow bananas` },
+      { id: `watermelon`, name: `Green Watermelon`,colour: `green`,  plural: `green watermelons` },
+      { id: `orange`,     name: `Orange Orange`,   colour: `orange`, plural: `orange oranges` },
+      { id: `grape`,      name: `Purple Grapes`,   colour: `purple`, plural: `purple grapes` },
+      { id: `dragon`,     name: `Pink Dragon Fruit`,colour:`pink`,   plural: `pink dragon fruits` },
+      { id: `coconut`,    name: `Brown Coconut`,   colour: `brown`,  plural: `brown coconuts` }
+    ];
+
+    function marketAddFruit(fruitId) {
+      const f = MARKET_FRUITS.find(x => x.id === fruitId);
+      if (!f) return;
+      session.marketBasket.push(fruitId);
+      playChime(`pop`);
+      speakText(f.name);
+      checkMarketOrder();
+      renderView();
+    }
+
+    function marketClearBasket() {
+      session.marketBasket = [];
+      renderView();
+    }
+
+    function checkMarketOrder() {
+      const apples = session.marketBasket.filter(x => x === `apple`).length;
+      const bananas = session.marketBasket.filter(x => x === `banana`).length;
+      const grapes = session.marketBasket.filter(x => x === `grape`).length;
+
+      if (session.marketOrderIndex === 0 && apples === 3 && bananas === 2 && session.marketBasket.length === 5) {
+        playChime(`win`);
+        speakText(`Great job! Three red apples and two yellow bananas!`);
+        session.marketOrderIndex = 1;
+        session.marketBasket = [];
+      } else if (session.marketOrderIndex === 1 && grapes === 2 && session.marketBasket.filter(x => x === `watermelon`).length === 1 && session.marketBasket.length === 3) {
+        playChime(`win`);
+        speakText(`Wonderful shopping! You finished the fruit market!`);
+        completeChapter(`market`);
+      }
+    }
+
+    function marketDialoguePick(choice) {
+      const fb = document.getElementById(`market-dialogue-fb`);
+      if (choice === `correct`) {
+        session.marketDialogueStep = 1;
+        playChime(`win`);
+        speakText(`I would like two red apples, please. Here you are! Thank you!`);
+        if (session.marketOrderIndex >= 1) completeChapter(`market`);
+        renderView();
+      } else {
+        playChime(`hint`);
+        speakText(`Remember to say please when asking the shopkeeper!`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Try the polite sentence with "please"!`; }
+      }
+    }
+
+    function renderFruitIcon(id, size) {
+      const s = size || 42;
+      if (id === `apple`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="27" r="15" fill="var(--color-red)"/><path d="M24 12 Q28 4 34 8 Q28 14 24 12 Z" fill="var(--color-green)"/></svg>`;
+      if (id === `banana`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><path d="M10 30 Q22 40 38 14 Q34 28 16 34 Z" fill="var(--color-yellow)" stroke="var(--color-orange)" stroke-width="2"/></svg>`;
+      if (id === `watermelon`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16" fill="var(--color-green)"/><path d="M14 14 Q24 24 14 34 M24 10 Q32 24 24 38" stroke="var(--on-surface)" stroke-width="2" fill="none"/></svg>`;
+      if (id === `orange`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="26" r="15" fill="var(--color-orange)"/><circle cx="24" cy="11" r="3" fill="var(--color-green)"/></svg>`;
+      if (id === `grape`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="19" cy="20" r="6" fill="var(--color-purple)"/><circle cx="29" cy="20" r="6" fill="var(--color-purple)"/><circle cx="24" cy="29" r="6" fill="var(--color-purple)"/><circle cx="24" cy="37" r="5" fill="var(--color-purple)"/></svg>`;
+      if (id === `dragon`) return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="26" rx="13" ry="16" fill="var(--color-pink)"/><path d="M16 14 L24 6 L32 14" stroke="var(--color-green)" stroke-width="3" fill="none"/></svg>`;
+      return `<svg width="${s}" height="${s}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="25" r="15" fill="var(--color-brown)"/><circle cx="20" cy="20" r="2" fill="var(--on-surface)"/><circle cx="26" cy="20" r="2" fill="var(--on-surface)"/></svg>`;
+    }
+
+    function renderMarketChapter() {
+      const orderText = session.marketOrderIndex === 0
+        ? `Challenge 1: Put <strong>3 red apples</strong> and <strong>2 yellow bananas</strong> into your basket!`
+        : `Challenge 2: Put <strong>2 purple grapes</strong> and <strong>1 green watermelon</strong> into your basket!`;
+
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`market`, `Chapter 4: The Colourful Fruit Market`, `Tap fruits to hear their colour names and fill your shopping basket!`)}
+
+          <div class="feedback-box ${appState.completedChapters.includes('market') ? 'success' : ''}" style="margin-bottom:var(--space-md);">
+            <span>${orderText}</span>
+            <button type="button" class="btn btn-audio" onclick="speakText('${session.marketOrderIndex === 0 ? 'Put three red apples and two yellow bananas into your basket!' : 'Put two purple grapes and one green watermelon into your basket!'}')">Hear Order</button>
+          </div>
+
+          <div class="grid-2">
+            <!-- Fruit Stall -->
+            <div class="card">
+              <h3>Market Fruit Stalls (Tap to add to basket)</h3>
+              <div class="grid-3" style="margin-top:var(--space-md);">
+                ${MARKET_FRUITS.map(f => `
+                  <button type="button" class="btn btn-soft" style="flex-direction:column; padding:var(--space-sm); border-radius:var(--rounded); min-height:92px;" onclick="marketAddFruit('${f.id}')">
+                    ${renderFruitIcon(f.id, 40)}
+                    <span style="font-size:0.85rem;">${f.name}</span>
+                  </button>`).join(``)}
+              </div>
+            </div>
+
+            <!-- Live Visual Shopping Basket -->
+            <div class="card card-sky" style="display:flex; flex-direction:column; justify-content:space-between; gap:var(--space-md);">
+              <div>
+                <h3>Your Shopping Basket (${session.marketBasket.length} items)</h3>
+                <div class="drop-zone" style="min-height:140px; flex-direction:row; flex-wrap:wrap; margin-top:var(--space-sm);">
+                  ${session.marketBasket.length === 0
+                    ? `<span style="color:var(--on-surface-variant);">Your basket is empty! Tap fruits to put them here.</span>`
+                    : session.marketBasket.map(id => renderFruitIcon(id, 38)).join(``)}
+                </div>
+              </div>
+              <div style="display:flex; gap:var(--space-sm);">
+                <button type="button" class="btn btn-soft" onclick="marketClearBasket()">Empty Basket</button>
+                <button type="button" class="btn btn-audio" onclick="speakText('What colour are the bananas? They are yellow!')">Hear Question</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shopkeeper Dialogue -->
+          <div class="card card-grape" style="margin-top:var(--space-lg);">
+            <h3>Shopkeeper Conversation</h3>
+            <p style="margin:var(--space-xs) 0;"><strong>Shopkeeper:</strong> "Hello! What would you like?"
+              <button type="button" class="btn btn-audio" onclick="speakText('Hello! What would you like?')">Listen</button>
+            </p>
+            ${session.marketDialogueStep === 0 ? `
+              <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-sm);">
+                <button type="button" class="btn btn-primary" onclick="marketDialoguePick('correct')">"I would like two red apples, please."</button>
+                <button type="button" class="btn btn-soft" onclick="marketDialoguePick('wrong')">"Give me apples."</button>
+              </div>
+            ` : `
+              <div class="feedback-box success">
+                <span><strong>You:</strong> "I would like two red apples, please." → <strong>Shopkeeper:</strong> "Here you are!" → <strong>You:</strong> "Thank you!"</span>
+              </div>
+            `}
+            <div id="market-dialogue-fb" class="feedback-box" style="margin-top:var(--space-sm);">
+              <span>Choose the friendly English reply!</span>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 5: THE COLOURFUL ART STUDIO (FUNCTIONAL DIGITAL COLOURING CANVAS)
+    // -------------------------------------------------------------------------
+    function studioPickColour(colour) {
+      session.studioSelectedColour = colour;
+      playChime(`pop`);
+      speakText(COLOURS[colour].name);
+      renderView();
+    }
+
+    function studioPaintPart(partName) {
+      const col = session.studioSelectedColour;
+      appState.currentCanvasColors[partName] = col;
+      playChime(`pop`);
+      speakText(`The ${partName.replace(/[0-9]/g, '')} is ${col}!`);
+
+      // Track guided suggestions gently without forcing
+      if ((partName === `sun` && col === `yellow`) || (partName === `roof` && col === `red`) || (partName === `door` && col === `blue`)) {
+        if (!session.studioGuidedDone.includes(partName)) session.studioGuidedDone.push(partName);
+      }
+
+      const paintedCount = Object.values(appState.currentCanvasColors).filter(c => c !== `white`).length;
+      if (paintedCount >= 5) {
+        completeChapter(`studio`);
+      }
+      saveState();
+      renderView();
+    }
+
+    function studioResetCanvas() {
+      Object.keys(appState.currentCanvasColors).forEach(k => {
+        appState.currentCanvasColors[k] = `white`;
+      });
+      saveState();
+      renderView();
+    }
+
+    function studioDescribeArtwork() {
+      const c = appState.currentCanvasColors;
+      const sentences = [
+        `The sun is ${c.sun}.`,
+        `The roof is ${c.roof}.`,
+        `The house is ${c.wall}.`,
+        `The door is ${c.door}.`,
+        `The flowers are ${c.flower1} and ${c.flower2}.`
+      ];
+      const text = sentences.join(` `);
+      speakText(text);
+      const fb = document.getElementById(`studio-feedback`);
+      if (fb) {
+        fb.className = `feedback-box success`;
+        fb.textContent = `Your Artwork Description: "${text}"`;
+      }
+    }
+
+    function studioSaveToGallery() {
+      const snapshot = Object.assign({}, appState.currentCanvasColors);
+      appState.savedArtworks.push({
+        id: Date.now(),
+        artist: appState.learnerName || appState.companion,
+        colors: snapshot
+      });
+      completeChapter(`studio`);
+      speakText(`You are a wonderful artist! Your painting is saved in your Trophy Book.`);
+      saveState();
+      const fb = document.getElementById(`studio-feedback`);
+      if (fb) {
+        fb.className = `feedback-box success`;
+        fb.textContent = `Saved to your Trophy Book Gallery! You now have ${appState.savedArtworks.length} saved painting(s).`;
+      }
+    }
+
+    function renderArtworkSvg(cMap, compact) {
+      const wClass = compact ? `` : `scene-svg`;
+      return `
+        <svg viewBox="0 0 600 320" class="${wClass}" role="img" aria-label="Interactive Digital Colouring Canvas of a House and Garden">
+          <!-- Sky -->
+          <rect x="0" y="0" width="600" height="230" fill="${COLOURS[cMap.sky].css}" stroke="var(--outline-variant)" stroke-width="2"
+                class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('sky')"`}/>
+          <!-- Grass -->
+          <rect x="0" y="230" width="600" height="90" fill="${COLOURS[cMap.grass].css}" stroke="var(--on-surface)" stroke-width="2"
+                class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('grass')"`}/>
+          <!-- Sun -->
+          <circle cx="510" cy="65" r="36" fill="${COLOURS[cMap.sun].css}" stroke="var(--on-surface)" stroke-width="3"
+                  class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('sun')"`}/>
+          <!-- House Walls -->
+          <rect x="190" y="140" width="180" height="110" fill="${COLOURS[cMap.wall].css}" stroke="var(--on-surface)" stroke-width="3"
+                class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('wall')"`}/>
+          <!-- Roof -->
+          <polygon points="170,140 280,65 390,140" fill="${COLOURS[cMap.roof].css}" stroke="var(--on-surface)" stroke-width="3"
+                   class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('roof')"`}/>
+          <!-- Door -->
+          <rect x="260" y="185" width="40" height="65" rx="6" fill="${COLOURS[cMap.door].css}" stroke="var(--on-surface)" stroke-width="3"
+                class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('door')"`}/>
+          <!-- Window -->
+          <rect x="210" y="165" width="35" height="35" rx="4" fill="${COLOURS[cMap.window].css}" stroke="var(--on-surface)" stroke-width="3"
+                class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('window')"`}/>
+          <!-- Tree -->
+          <rect x="75" y="175" width="22" height="75" fill="var(--color-brown)" stroke="var(--on-surface)" stroke-width="2"/>
+          <circle cx="86" cy="145" r="44" fill="${COLOURS[cMap.tree].css}" stroke="var(--on-surface)" stroke-width="3"
+                  class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('tree')"`}/>
+          <!-- Flowers -->
+          <line x1="440" y1="265" x2="440" y2="225" stroke="var(--color-green)" stroke-width="4"/>
+          <circle cx="440" cy="218" r="16" fill="${COLOURS[cMap.flower1].css}" stroke="var(--on-surface)" stroke-width="2.5"
+                  class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('flower1')"`}/>
+          <line x1="495" y1="268" x2="495" y2="230" stroke="var(--color-green)" stroke-width="4"/>
+          <circle cx="495" cy="224" r="16" fill="${COLOURS[cMap.flower2].css}" stroke="var(--on-surface)" stroke-width="2.5"
+                  class="${compact ? '' : 'interactive-obj'}" ${compact ? '' : `onclick="studioPaintPart('flower2')"`}/>
+        </svg>`;
+    }
+
+    function renderStudioChapter() {
+      const tools = [`Crayon`, `Paintbrush`, `Coloured Pencil`, `Paint`, `Paper`, `Palette`];
+      const palette = [`red`, `yellow`, `blue`, `green`, `orange`, `purple`, `pink`, `brown`, `white`];
+
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`studio`, `Chapter 5: The Colourful Art Studio`, `Pick a colour and tap any part of the picture to paint your masterpiece!`)}
+
+          <div style="margin-bottom:var(--space-md);">
+            <span class="kicker">Art Studio Vocabulary (Tap to Hear)</span>
+            <div class="swatch-row">
+              ${tools.map(t => `<button type="button" class="btn btn-audio" onclick="speakText('${t}')">${t}</button>`).join(``)}
+            </div>
+          </div>
+
+          <div class="card card-sky" style="margin-bottom:var(--space-md);">
+            <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--space-sm); margin-bottom:var(--space-sm);">
+              <strong>1. Pick a Paint Colour (Currently: ${COLOURS[session.studioSelectedColour].name})</strong>
+              <span class="badge">Ideas: Sun = yellow, Roof = red, Door = blue (or use your own!)</span>
+            </div>
+            <div class="swatch-row">
+              ${palette.map(c => `
+                <button type="button" class="colour-chip ${session.studioSelectedColour === c ? 'selected' : ''}" onclick="studioPickColour('${c}')">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span>
+                  <span>${COLOURS[c].name}</span>
+                </button>`).join(``)}
+            </div>
+          </div>
+
+          <div class="scene-frame" style="margin-bottom:var(--space-md);">
+            ${renderArtworkSvg(appState.currentCanvasColors, false)}
+          </div>
+
+          <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-bottom:var(--space-md);">
+            <button type="button" class="btn btn-primary" onclick="studioSaveToGallery()">
+              <i data-lucide="bookmark-plus" aria-hidden="true"></i> Save Artwork to Gallery
+            </button>
+            <button type="button" class="btn btn-secondary" onclick="studioDescribeArtwork()">
+              <i data-lucide="volume-2" aria-hidden="true"></i> Describe My Artwork
+            </button>
+            <button type="button" class="btn btn-soft" onclick="studioResetCanvas()">
+              <i data-lucide="eraser" aria-hidden="true"></i> Reset Canvas
+            </button>
+          </div>
+
+          <div id="studio-feedback" class="feedback-box">
+            <span>Paint at least 5 parts of your picture to restore the Art Studio!</span>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 6: THE TOY WONDERLAND
+    // -------------------------------------------------------------------------
+    const TOYS = [
+      { id: `car`,   name: `Red Toy Car`,      colour: `red` },
+      { id: `ball`,  name: `Blue Ball`,        colour: `blue` },
+      { id: `teddy`, name: `Yellow Teddy Bear`,colour: `yellow` },
+      { id: `doll`,  name: `Pink Doll`,        colour: `pink` },
+      { id: `kite`,  name: `Green Kite`,       colour: `green` },
+      { id: `train`, name: `Purple Toy Train`, colour: `purple` },
+      { id: `robot`, name: `Orange Robot`,     colour: `orange` }
+    ];
+
+    const TOY_RIDDLES = [
+      { clue: `I am a toy. I am round. You can kick or bounce me. Here I am blue! What am I?`, answer: `ball` },
+      { clue: `I am soft and yellow. You can hug me at bedtime. What am I?`, answer: `teddy` },
+      { clue: `I am orange with shiny buttons and I walk like a machine. What am I?`, answer: `robot` }
+    ];
+
+    function toyTap(id) {
+      const t = TOYS.find(x => x.id === id);
+      if (!t) return;
+      playChime(`pop`);
+      speakText(`It is a ${t.name}!`);
+      const riddle = TOY_RIDDLES[session.toyRiddleIndex];
+      const fb = document.getElementById(`toys-feedback`);
+      if (riddle && id === riddle.answer) {
+        playChime(`win`);
+        speakText(`Amazing! You solved the mystery toy: ${t.name}!`);
+        if (session.toyRiddleIndex < TOY_RIDDLES.length - 1) {
+          session.toyRiddleIndex++;
+          renderView();
+        } else {
+          completeChapter(`toys`);
+          renderView();
+          const nfb = document.getElementById(`toys-feedback`);
+          if (nfb) { nfb.className = `feedback-box success`; nfb.textContent = `You solved all Mystery Box riddles and restored Toy Wonderland!`; }
+        }
+      } else if (fb) {
+        fb.className = `feedback-box`;
+        fb.textContent = `You tapped the ${t.name}!`;
+      }
+    }
+
+    function toySetPreference(likesGreen) {
+      session.toyLikedGreen = likesGreen;
+      const ans = likesGreen ? `Yes, I do! I like the green kite.` : `No, I don't. My favourite colour is red!`;
+      playChime(`pop`);
+      speakText(ans);
+      renderView();
+    }
+
+    function toyPickGift(toyId) {
+      session.toyGift = toyId;
+      const t = TOYS.find(x => x.id === toyId);
+      playChime(`win`);
+      speakText(`I want a ${t.name} for ${appState.companion}! Thank you!`);
+      completeChapter(`toys`);
+      renderView();
+    }
+
+    function renderToySvg(id) {
+      if (id === `car`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><rect x="10" y="26" width="60" height="18" rx="6" fill="var(--color-red)"/><path d="M22 26 L30 12 L50 12 L58 26 Z" fill="var(--color-red)"/><circle cx="24" cy="46" r="7" fill="var(--on-surface)"/><circle cx="56" cy="46" r="7" fill="var(--on-surface)"/></svg>`;
+      if (id === `ball`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><circle cx="40" cy="30" r="22" fill="var(--color-blue)"/><path d="M22 18 Q40 30 58 18 M22 42 Q40 30 58 42" stroke="var(--color-white)" stroke-width="3" fill="none"/></svg>`;
+      if (id === `teddy`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><circle cx="28" cy="14" r="7" fill="var(--color-yellow)"/><circle cx="52" cy="14" r="7" fill="var(--color-yellow)"/><circle cx="40" cy="24" r="14" fill="var(--color-yellow)"/><ellipse cx="40" cy="44" rx="16" ry="13" fill="var(--color-yellow)"/><circle cx="35" cy="22" r="2" fill="var(--on-surface)"/><circle cx="45" cy="22" r="2" fill="var(--on-surface)"/></svg>`;
+      if (id === `doll`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><circle cx="40" cy="20" r="11" fill="var(--surface-container-high)"/><path d="M25 52 L32 30 L48 30 L55 52 Z" fill="var(--color-pink)"/></svg>`;
+      if (id === `kite`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><polygon points="40,6 60,26 40,46 20,26" fill="var(--color-green)"/><path d="M40 46 Q46 54 36 58" stroke="var(--color-orange)" stroke-width="3" fill="none"/></svg>`;
+      if (id === `train`) return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><rect x="14" y="20" width="46" height="22" rx="4" fill="var(--color-purple)"/><rect x="44" y="10" width="12" height="12" fill="var(--color-purple)"/><circle cx="24" cy="46" r="6" fill="var(--on-surface)"/><circle cx="48" cy="46" r="6" fill="var(--on-surface)"/></svg>`;
+      return `<svg width="64" height="50" viewBox="0 0 80 60" aria-hidden="true"><rect x="24" y="12" width="32" height="18" rx="4" fill="var(--color-orange)"/><rect x="20" y="32" width="40" height="22" rx="4" fill="var(--color-orange)"/><circle cx="34" cy="20" r="3" fill="var(--color-white)"/><circle cx="46" cy="20" r="3" fill="var(--color-white)"/></svg>`;
+    }
+
+    function renderToysChapter() {
+      const riddle = TOY_RIDDLES[session.toyRiddleIndex];
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`toys`, `Chapter 6: The Toy Wonderland`, `Solve the Mystery Box riddles, talk about preferences, and pick a gift!`)}
+
+          <div class="feedback-box" style="background:var(--primary-container); margin-bottom:var(--space-md);">
+            <span><strong>Mystery Box Riddle ${session.toyRiddleIndex + 1}/3:</strong> "${riddle.clue}"</span>
+            <button type="button" class="btn btn-audio" onclick="speakText(\`${riddle.clue}\`)">Hear Riddle</button>
+          </div>
+
+          <div class="grid-4" style="margin-bottom:var(--space-md);">
+            ${TOYS.map(t => `
+              <button type="button" class="card interactive-obj" style="display:flex; flex-direction:column; align-items:center; gap:var(--space-xs); border:2px solid var(--outline-variant); cursor:pointer;" onclick="toyTap('${t.id}')">
+                ${renderToySvg(t.id)}
+                <span style="font-weight:800; color:var(--on-surface);">${t.name}</span>
+              </button>`).join(``)}
+          </div>
+
+          <div id="toys-feedback" class="feedback-box" style="margin-bottom:var(--space-lg);">
+            <span>Tap the toy that matches the Mystery Box riddle!</span>
+          </div>
+
+          <div class="grid-2">
+            <div class="card card-sky">
+              <h3>Talk About Preferences</h3>
+              <p><strong>Question:</strong> "Do you like green?" <button type="button" class="btn btn-audio" onclick="speakText('Do you like green?')">Listen</button></p>
+              <div style="display:flex; gap:var(--space-sm); flex-wrap:wrap;">
+                <button type="button" class="btn ${session.toyLikedGreen === true ? 'btn-primary' : 'btn-soft'}" onclick="toySetPreference(true)">Yes, I do!</button>
+                <button type="button" class="btn ${session.toyLikedGreen === false ? 'btn-primary' : 'btn-soft'}" onclick="toySetPreference(false)">No, I don't.</button>
+              </div>
+            </div>
+
+            <div class="card card-grape">
+              <h3>Choose a Gift for ${appState.companion}</h3>
+              <p style="margin-top:0; font-size:0.9rem; color:var(--on-surface-variant);">Complete the sentence: "I want a ____ for ${appState.companion}!"</p>
+              <div class="swatch-row">
+                ${TOYS.slice(0, 4).map(t => `
+                  <button type="button" class="btn ${session.toyGift === t.id ? 'btn-primary' : 'btn-soft'}" onclick="toyPickGift('${t.id}')">${t.name}</button>
+                `).join(``)}
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // CHAPTER 7: THE RAINBOW CASTLE
+    // -------------------------------------------------------------------------
+    const RAINBOW_ORDER = [`red`, `orange`, `yellow`, `green`, `blue`, `indigo`, `violet`];
+
+    function castleCheckMissing(choice) {
+      session.castleMissingChoice = choice;
+      const fb = document.getElementById(`castle-feedback`);
+      if (choice === `green`) {
+        playChime(`win`);
+        speakText(`Yes! Green is between yellow and blue!`);
+        renderView();
+      } else {
+        playChime(`hint`);
+        speakText(`Not quite! Remember: Red, Orange, Yellow, Green, Blue, Indigo, Violet.`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Almost! Look at the rainbow sequence again.`; }
+      }
+    }
+
+    function castleSelectBlock(colour) {
+      session.castleSelectedBlock = colour;
+      playChime(`pop`);
+      speakText(COLOURS[colour].name);
+      renderView();
+    }
+
+    function castlePlaceInSlot(idx) {
+      const picked = session.castleSelectedBlock;
+      if (!picked) {
+        const fb = document.getElementById(`castle-feedback`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `First pick a rainbow block below, then tap slot ${idx + 1}!`; }
+        return;
+      }
+      if (RAINBOW_ORDER[idx] === picked) {
+        session.castleBridge[idx] = picked;
+        session.castleSelectedBlock = null;
+        playChime(`pop`);
+        if (session.castleBridge.every(Boolean)) {
+          completeChapter(`castle`);
+          speakText(`Hooray! You rebuilt the Rainbow Bridge and saved Colourland!`);
+        }
+        renderView();
+      } else {
+        playChime(`hint`);
+        speakText(`Try another spot! Slot ${idx + 1} needs ${RAINBOW_ORDER[idx]}.`);
+        const fb = document.getElementById(`castle-feedback`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Hint: Slot ${idx + 1} is ${COLOURS[RAINBOW_ORDER[idx]].name}!`; }
+      }
+    }
+
+    function renderCastleChapter() {
+      const bridgeDone = session.castleBridge.every(Boolean);
+      const scrambledBlocks = [`blue`, `red`, `violet`, `green`, `orange`, `indigo`, `yellow`];
+
+      return `
+        <section class="hero-panel">
+          ${chapterHeaderHtml(`castle`, `Chapter 7: The Rainbow Castle`, `Fix the missing colour and rebuild the 7-colour Rainbow Bridge!`)}
+
+          <!-- Castle & Bridge Illustration -->
+          <div class="scene-frame" style="margin-bottom:var(--space-md);">
+            <svg viewBox="0 0 700 260" class="scene-svg" role="img" aria-label="The Rainbow Castle and its 7-colour Rainbow Bridge">
+              <rect x="0" y="0" width="700" height="260" fill="var(--color-sky-soft)"/>
+              <!-- Castle Towers -->
+              <rect x="470" y="105" width="160" height="135" fill="var(--surface-container-low)" stroke="var(--on-surface)" stroke-width="3"/>
+              <rect x="445" y="75" width="45" height="165" fill="var(--surface-container)" stroke="var(--on-surface)" stroke-width="3"/>
+              <polygon points="440,75 467,30 495,75" fill="var(--color-purple)"/>
+              <rect x="610" y="75" width="45" height="165" fill="var(--surface-container)" stroke="var(--on-surface)" stroke-width="3"/>
+              <polygon points="605,75 632,30 660,75" fill="var(--color-pink)"/>
+              <path d="M525 240 L525 180 A25 25 0 0 1 575 180 L575 240 Z" fill="var(--color-gold)"/>
+
+              <!-- 7-Stripe Rainbow Bridge -->
+              ${RAINBOW_ORDER.map((col, i) => {
+                const filled = session.castleBridge[i];
+                const y = 135 + i * 11;
+                return `<path d="M 35 ${y + 90} Q 250 ${y - 45} 455 ${y + 90}" fill="none" stroke="${filled ? COLOURS[col].css : 'var(--color-grey-light)'}" stroke-width="10" stroke-linecap="round"/>`;
+              }).join(``)}
+            </svg>
+          </div>
+
+          <!-- Activity 1: What's Missing? -->
+          <div class="card card-sky" style="margin-bottom:var(--space-md);">
+            <h3>1. Find the Missing Rainbow Colour</h3>
+            <p style="font-weight:700;">Red → Orange → Yellow → <strong>___</strong> → Blue → Indigo → Violet</p>
+            <div class="swatch-row">
+              ${[`green`, `pink`, `brown`].map(c => `
+                <button type="button" class="btn ${session.castleMissingChoice === c ? 'btn-primary' : 'btn-soft'}" onclick="castleCheckMissing('${c}')">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name}
+                </button>`).join(``)}
+            </div>
+          </div>
+
+          <!-- Activity 2: Rebuild the Rainbow Bridge -->
+          <div class="card">
+            <h3>2. Final Challenge: Rebuild the Rainbow Bridge!</h3>
+            <p style="margin-top:0; color:var(--on-surface-variant); font-size:0.92rem;">Tap a colour block below, then tap its matching slot (1 to 7) in order!</p>
+
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${scrambledBlocks.map(c => {
+                const placed = session.castleBridge.includes(c);
+                return `<button type="button" class="draggable-chip ${session.castleSelectedBlock === c ? 'selected-drag' : ''}" ${placed ? 'disabled' : ''} onclick="castleSelectBlock('${c}')">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name} ${placed ? '✓' : ''}
+                </button>`;
+              }).join(``)}
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(90px, 1fr)); gap:var(--space-xs);">
+              ${RAINBOW_ORDER.map((c, idx) => {
+                const placed = session.castleBridge[idx];
+                return `<button type="button" class="drop-zone" onclick="castlePlaceInSlot(${idx})" style="min-height:66px; background:${placed ? COLOURS[placed].css : 'var(--surface-container)'}; color:${placed && COLOURS[placed].textLight ? 'var(--color-white)' : 'var(--on-surface)'}; cursor:pointer;">
+                  <span>${idx + 1}</span>
+                  <span style="font-size:0.8rem;">${placed ? COLOURS[placed].name : 'Tap to place'}</span>
+                </button>`;
+              }).join(``)}
+            </div>
+          </div>
+
+          <div id="castle-feedback" class="feedback-box ${bridgeDone ? 'success' : ''}" style="margin-top:var(--space-md);">
+            <span>${bridgeDone ? 'Hooray! The Rainbow Bridge is complete! Visit your Trophy Book for your Certificate!' : 'Place all 7 rainbow colours from Red to Violet!'}</span>
+            ${bridgeDone ? `<button type="button" class="btn btn-primary" onclick="goToView('trophies')">Open Explorer Certificate</button>` : ``}
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // SECTION 11: REAL-LIFE COLOUR MISSIONS ("COLOURS IN MY EVERYDAY LIFE")
+    // -------------------------------------------------------------------------
+    function setMissionTab(num) {
+      appState.activeMissionTab = num;
+      saveState();
+      renderView();
+    }
+
+    function toggleMissionAround(colour) {
+      const list = appState.missions.aroundMe;
+      if (list.includes(colour)) appState.missions.aroundMe = list.filter(x => x !== colour);
+      else {
+        appState.missions.aroundMe.push(colour);
+        playChime(`win`);
+        speakText(`I can see something ${colour}!`);
+      }
+      saveState();
+      renderView();
+    }
+
+    function saveAroundNote() {
+      const inp = document.getElementById(`mission1-note`);
+      if (!inp) return;
+      appState.missions.aroundMeNote = inp.value.trim();
+      if (appState.missions.aroundMeNote) speakText(appState.missions.aroundMeNote);
+      saveState();
+      renderView();
+    }
+
+    function setFavMission(col, reason) {
+      if (col) appState.missions.favColour = col;
+      if (reason) appState.missions.favReason = reason;
+      playChime(`pop`);
+      speakText(`My favourite colour is ${appState.missions.favColour}. ${appState.missions.favReason}`);
+      saveState();
+      renderView();
+    }
+
+    function setOutfitColour(item, colour) {
+      appState.missions.outfit[item] = colour;
+      playChime(`pop`);
+      speakText(`My ${item} is ${colour}!`);
+      saveState();
+      renderView();
+    }
+
+    function tapClassroomObj(id, sentence) {
+      if (!appState.missions.classroomFound.includes(id)) {
+        appState.missions.classroomFound.push(id);
+        playChime(`win`);
+      } else {
+        playChime(`pop`);
+      }
+      speakText(sentence);
+      saveState();
+      renderView();
+    }
+
+    function saveClassroomNote() {
+      const inp = document.getElementById(`mission4-note`);
+      if (!inp) return;
+      appState.missions.classroomNote = inp.value.trim();
+      if (appState.missions.classroomNote) speakText(`In my classroom, I can see ${appState.missions.classroomNote}`);
+      saveState();
+      renderView();
+    }
+
+    function setCollectionItem(col, val) {
+      appState.missions.collection[col] = val;
+      playChime(`pop`);
+      speakText(`My favourite ${col} object is a ${val}!`);
+      saveState();
+      renderView();
+    }
+
+    function renderMissionsView() {
+      const tab = appState.activeMissionTab;
+      const m = appState.missions;
+      const tabTitles = [`1. Around Me`, `2. Favourite Colour`, `3. Colourful Clothes`, `4. My Classroom`, `5. My Collection`];
+
+      let body = ``;
+      if (tab === 1) {
+        body = `
+          <div class="card">
+            <h3>Mission 1: Colours Around Me</h3>
+            <p>Look around your room! Find one real object for each colour and tap the button when you spot it.</p>
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${[`red`, `blue`, `green`, `yellow`].map(c => {
+                const checked = m.aroundMe.includes(c);
+                return `<button type="button" class="btn ${checked ? 'btn-primary' : 'btn-soft'}" onclick="toggleMissionAround('${c}')">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span>
+                  Find something ${c} ${checked ? '✓' : ''}
+                </button>`;
+              }).join(``)}
+            </div>
+            <div class="field-group" style="max-width:460px;">
+              <label for="mission1-note">Write one sentence about what you see (Example: "I can see a red bag.")</label>
+              <div style="display:flex; gap:var(--space-xs);">
+                <input type="text" id="mission1-note" value="${m.aroundMeNote}" style="flex:1;" placeholder="I can see a blue pencil.">
+                <button type="button" class="btn btn-secondary" onclick="saveAroundNote()">Speak & Save</button>
+              </div>
+            </div>
+          </div>`;
+      } else if (tab === 2) {
+        const reasons = [`Because it is beautiful.`, `Because I like flowers.`, `Because it is bright like the sun.`, `Because it makes me happy.`];
+        body = `
+          <div class="card card-sky">
+            <h3>Mission 2: My Favourite Colour</h3>
+            <p>Choose your favourite colour and tell us why you like it!</p>
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${[`red`, `blue`, `yellow`, `green`, `orange`, `purple`, `pink`].map(c => `
+                <button type="button" class="colour-chip ${m.favColour === c ? 'selected' : ''}" onclick="setFavMission('${c}', null)">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name}
+                </button>`).join(``)}
+            </div>
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${reasons.map(r => `<button type="button" class="btn ${m.favReason === r ? 'btn-primary' : 'btn-soft'}" onclick="setFavMission(null, '${r}')">${r}</button>`).join(``)}
+            </div>
+            <div class="feedback-box success">
+              <span>"My favourite colour is <strong>${m.favColour}</strong>. ${m.favReason}"</span>
+              <button type="button" class="btn btn-audio" onclick="speakText('My favourite colour is ${m.favColour}. ${m.favReason}')">Hear Sentence</button>
+            </div>
+          </div>`;
+      } else if (tab === 3) {
+        const o = m.outfit;
+        body = `
+          <div class="card card-grape">
+            <h3>Mission 3: My Colourful Clothes</h3>
+            <div class="grid-2" style="align-items:center;">
+              <div class="scene-frame" style="text-align:center;">
+                <svg viewBox="0 0 220 260" width="220" height="260" aria-label="Illustrated colourful outfit">
+                  <circle cx="110" cy="65" r="24" fill="var(--surface-container-low)" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <!-- Hat -->
+                  <path d="M80 52 L140 52 L130 28 L90 28 Z" fill="${COLOURS[o.hat].css}" stroke="var(--on-surface)" stroke-width="2"/>
+                  <!-- Shirt -->
+                  <path d="M72 95 L148 95 L162 135 L142 142 L140 165 L80 165 L78 142 L58 135 Z" fill="${COLOURS[o.shirt].css}" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <!-- Trousers -->
+                  <path d="M82 165 L138 165 L142 225 L116 225 L110 185 L104 225 L78 225 Z" fill="${COLOURS[o.trousers].css}" stroke="var(--on-surface)" stroke-width="2.5"/>
+                  <!-- Shoes -->
+                  <ellipse cx="90" cy="234" rx="16" ry="8" fill="${COLOURS[o.shoes].css}" stroke="var(--on-surface)" stroke-width="2"/>
+                  <ellipse cx="130" cy="234" rx="16" ry="8" fill="${COLOURS[o.shoes].css}" stroke="var(--on-surface)" stroke-width="2"/>
+                </svg>
+              </div>
+              <div style="display:grid; gap:var(--space-sm);">
+                <div><strong>Hat:</strong> ${[`pink`, `yellow`, `purple`].map(c => `<button type="button" class="btn ${o.hat === c ? 'btn-primary' : 'btn-soft'}" style="min-height:36px; padding:4px 12px;" onclick="setOutfitColour('hat','${c}')">${COLOURS[c].name}</button>`).join(` `)}</div>
+                <div><strong>Shirt:</strong> ${[`red`, `white`, `orange`].map(c => `<button type="button" class="btn ${o.shirt === c ? 'btn-primary' : 'btn-soft'}" style="min-height:36px; padding:4px 12px;" onclick="setOutfitColour('shirt','${c}')">${COLOURS[c].name}</button>`).join(` `)}</div>
+                <div><strong>Trousers:</strong> ${[`blue`, `black`, `brown`].map(c => `<button type="button" class="btn ${o.trousers === c ? 'btn-primary' : 'btn-soft'}" style="min-height:36px; padding:4px 12px;" onclick="setOutfitColour('trousers','${c}')">${COLOURS[c].name}</button>`).join(` `)}</div>
+                <div><strong>Shoes:</strong> ${[`green`, `red`, `yellow`].map(c => `<button type="button" class="btn ${o.shoes === c ? 'btn-primary' : 'btn-soft'}" style="min-height:36px; padding:4px 12px;" onclick="setOutfitColour('shoes','${c}')">${COLOURS[c].name}</button>`).join(` `)}</div>
+                <button type="button" class="btn btn-audio" onclick="speakText('My hat is ${o.hat}. My shirt is ${o.shirt}. My trousers are ${o.trousers}. My shoes are ${o.shoes}.')">Describe My Outfit</button>
+              </div>
+            </div>
+          </div>`;
+      } else if (tab === 4) {
+        body = `
+          <div class="card">
+            <h3>Mission 4: Colours in My Classroom</h3>
+            <p>Tap the 3 blue objects and the yellow clock & red pencils in the illustrated classroom! (${m.classroomFound.length}/5 found)</p>
+            <div class="scene-frame" style="margin-bottom:var(--space-md);">
+              <svg viewBox="0 0 600 240" class="scene-svg" role="img" aria-label="Illustrated classroom with blue bag, blue book, blue ruler, yellow clock and red pencils">
+                <rect x="0" y="0" width="600" height="240" fill="var(--surface-container-low)"/>
+                <rect x="140" y="25" width="300" height="100" rx="8" fill="var(--color-green)" stroke="var(--color-brown)" stroke-width="6"/>
+                <!-- Yellow Clock -->
+                <circle cx="515" cy="65" r="28" fill="var(--color-yellow)" stroke="var(--on-surface)" stroke-width="3" class="interactive-obj" onclick="tapClassroomObj('clock', 'The clock is yellow!')"/>
+                <!-- Blue Bag -->
+                <rect x="55" y="135" width="54" height="65" rx="12" fill="var(--color-blue)" stroke="var(--on-surface)" stroke-width="2.5" class="interactive-obj" onclick="tapClassroomObj('bag', 'My school bag is blue!')"/>
+                <!-- Desk -->
+                <rect x="175" y="160" width="240" height="18" rx="4" fill="var(--color-brown)"/>
+                <!-- Blue Book -->
+                <rect x="200" y="140" width="52" height="18" rx="3" fill="var(--color-blue)" class="interactive-obj" onclick="tapClassroomObj('book', 'The notebook is blue!')"/>
+                <!-- Blue Ruler -->
+                <rect x="275" y="148" width="68" height="10" rx="2" fill="var(--color-blue)" class="interactive-obj" onclick="tapClassroomObj('ruler', 'The ruler is blue!')"/>
+                <!-- Red Pencils -->
+                <g class="interactive-obj" onclick="tapClassroomObj('pencils', 'There are three red pencils!')">
+                  <rect x="370" y="130" width="8" height="28" fill="var(--color-red)"/>
+                  <rect x="382" y="128" width="8" height="30" fill="var(--color-red)"/>
+                  <rect x="394" y="132" width="8" height="26" fill="var(--color-red)"/>
+                </g>
+              </svg>
+            </div>
+            <div class="field-group" style="max-width:480px;">
+              <label for="mission4-note">Look around your real classroom or desk. What colours can you see?</label>
+              <div style="display:flex; gap:var(--space-xs);">
+                <input type="text" id="mission4-note" value="${m.classroomNote}" style="flex:1;" placeholder="I can see a green book and a yellow pencil.">
+                <button type="button" class="btn btn-primary" onclick="saveClassroomNote()">Save Answer</button>
+              </div>
+            </div>
+          </div>`;
+      } else {
+        const opts = {
+          red:    [`Red Apple`, `Red Car`, `Red Flower`],
+          blue:   [`Blue Butterfly`, `Blue Ball`, `Blue Bag`],
+          green:  [`Green Leaf`, `Green Watermelon`, `Green Kite`],
+          yellow: [`Yellow Sun`, `Yellow Banana`, `Yellow Teddy Bear`]
+        };
+        body = `
+          <div class="card card-sky">
+            <h3>Mission 5: My Colour Collection</h3>
+            <p>Choose your favourite object for each colour to build your personal Colour Collection!</p>
+            <div class="grid-2">
+              ${[`red`, `blue`, `green`, `yellow`].map(c => `
+                <div style="padding:var(--space-md); background:var(--surface-container); border-radius:var(--rounded);">
+                  <strong style="display:flex; align-items:center; gap:6px; margin-bottom:8px;">
+                    <span class="colour-dot" style="background:${COLOURS[c].css};"></span> My favourite ${c} object: ${m.collection[c]}
+                  </strong>
+                  <div class="swatch-row">
+                    ${opts[c].map(item => `<button type="button" class="btn ${m.collection[c] === item ? 'btn-primary' : 'btn-soft'}" style="min-height:36px; padding:4px 12px;" onclick="setCollectionItem('${c}','${item}')">${item}</button>`).join(``)}
+                  </div>
+                </div>`).join(``)}
+            </div>
+            <div style="margin-top:var(--space-md);">
+              <button type="button" class="btn btn-audio" onclick="speakText('My colour collection has a ${m.collection.red}, a ${m.collection.blue}, a ${m.collection.green}, and a ${m.collection.yellow}!')">Hear My Whole Collection</button>
+            </div>
+          </div>`;
+      }
+
+      return `
+        <section class="hero-panel">
+          <span class="kicker">Real-Life Colour Missions</span>
+          <h1 class="display">Colours in My <em>Everyday</em> Life</h1>
+          <div class="pill-tabs">
+            ${tabTitles.map((t, idx) => `
+              <button type="button" class="btn btn-nav ${tab === idx + 1 ? 'active' : ''}" onclick="setMissionTab(${idx + 1})">${t}</button>`).join(``)}
+          </div>
+          ${body}
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // SECTION 12: ALL 12 INTERACTIVE MINI-GAMES
+    // -------------------------------------------------------------------------
+    const GAMES_LIST = [
+      { id: 1,  name: `1. Colour Pop` },
+      { id: 2,  name: `2. Colour Match` },
+      { id: 3,  name: `3. Colour Detective` },
+      { id: 4,  name: `4. Rainbow Puzzle` },
+      { id: 5,  name: `5. Mix It!` },
+      { id: 6,  name: `6. Colour Memory` },
+      { id: 7,  name: `7. Listen & Colour` },
+      { id: 8,  name: `8. Mystery Colour` },
+      { id: 9,  name: `9. Sort the Colours` },
+      { id: 10, name: `10. Colour Hunt` },
+      { id: 11, name: `11. What's Missing?` },
+      { id: 12, name: `12. Colour Creator` }
+    ];
+
+    function selectMiniGame(id) {
+      appState.activeGameId = id;
+      if (id === 6 && session.g6Cards.length === 0) initMemoryGame();
+      saveState();
+      renderView();
+    }
+
+    // Game 1: Colour Pop
+    function g1PopBalloon(col) {
+      const fb = document.getElementById(`g1-fb`);
+      if (col === session.g1Target) {
+        session.g1Popped++;
+        playChime(`pop`);
+        const targets = [`red`, `blue`, `yellow`, `green`, `purple`];
+        session.g1Target = targets[session.g1Popped % targets.length];
+        if (session.g1Popped >= 5) {
+          awardGameStar(1);
+          speakText(`Pop! Amazing! You popped five balloons!`);
+        } else {
+          speakText(`Pop! Now pop the ${session.g1Target} balloon!`);
+        }
+        renderView();
+      } else {
+        playChime(`hint`);
+        speakText(`That is ${col}! Try the ${session.g1Target} balloon.`);
+        if (fb) { fb.className = `feedback-box hint`; fb.textContent = `Oops, that balloon is ${col}! Pop the ${session.g1Target} balloon!`; }
+      }
+    }
+
+    // Game 2: Colour Match
+    function g2PickObj(objCol) { session.g2SelectedObj = objCol; playChime(`pop`); renderView(); }
+    function g2PickColour(col) {
+      if (!session.g2SelectedObj) return;
+      if (session.g2SelectedObj === col) {
+        if (!session.g2Matched.includes(col)) session.g2Matched.push(col);
+        session.g2SelectedObj = null;
+        playChime(`win`);
+        speakText(`Great match! ${COLOURS[col].name}!`);
+        if (session.g2Matched.length >= 4) awardGameStar(2);
+      } else {
+        playChime(`hint`);
+        speakText(`Try again!`);
+      }
+      renderView();
+    }
+
+    // Game 3: Colour Detective
+    function g3Tap(id, col) {
+      if (col === `yellow`) {
+        if (!session.g3Found.includes(id)) session.g3Found.push(id);
+        playChime(`pop`);
+        speakText(`Found a yellow object!`);
+        if (session.g3Found.length >= 3) awardGameStar(3);
+      } else {
+        playChime(`hint`);
+        speakText(`That is ${col}. Look for yellow!`);
+      }
+      renderView();
+    }
+
+    // Game 4: Rainbow Puzzle
+    function g4TapStripe(idx) {
+      if (session.g4Picked === null) {
+        session.g4Picked = idx;
+      } else {
+        const tmp = session.g4Order[session.g4Picked];
+        session.g4Order[session.g4Picked] = session.g4Order[idx];
+        session.g4Order[idx] = tmp;
+        session.g4Picked = null;
+        playChime(`pop`);
+        if (session.g4Order.every((c, i) => c === RAINBOW_ORDER[i])) {
+          awardGameStar(4);
+          speakText(`Perfect rainbow order!`);
+        }
+      }
+      renderView();
+    }
+
+    // Game 5: Mix It!
+    function g5Pick(col) {
+      if (session.g5Picks.includes(col)) session.g5Picks = session.g5Picks.filter(x => x !== col);
+      else if (session.g5Picks.length < 2) session.g5Picks.push(col);
+      playChime(`pop`);
+      renderView();
+    }
+    function g5Check() {
+      const p = session.g5Picks.slice().sort().join(`+`);
+      const targets = { purple: `blue+red`, green: `blue+yellow`, orange: `red+yellow` };
+      if (p === targets[session.g5Target]) {
+        playChime(`win`);
+        speakText(`Yes! You made ${session.g5Target}!`);
+        awardGameStar(5);
+        session.g5Target = session.g5Target === `purple` ? `green` : session.g5Target === `green` ? `orange` : `purple`;
+        session.g5Picks = [];
+      } else {
+        playChime(`hint`);
+        speakText(`Not quite! Try two different primary colours.`);
+      }
+      renderView();
+    }
+
+    // Game 6: Colour Memory
+    function initMemoryGame() {
+      const base = [
+        { key: `red`,    label: `Red` },    { key: `red`,    label: `Apple` },
+        { key: `blue`,   label: `Blue` },   { key: `blue`,   label: `Sky` },
+        { key: `yellow`, label: `Yellow` }, { key: `yellow`, label: `Sun` },
+        { key: `green`,  label: `Green` },  { key: `green`,  label: `Leaf` }
+      ];
+      session.g6Cards = base.sort(() => Math.random() - 0.5);
+      session.g6Flipped = [];
+      session.g6Matched = [];
+    }
+    function g6Flip(idx) {
+      if (session.g6Flipped.includes(idx) || session.g6Matched.includes(session.g6Cards[idx].key) || session.g6Flipped.length >= 2) return;
+      session.g6Flipped.push(idx);
+      playChime(`pop`);
+      speakText(session.g6Cards[idx].label);
+      if (session.g6Flipped.length === 2) {
+        const [a, b] = session.g6Flipped;
+        if (session.g6Cards[a].key === session.g6Cards[b].key) {
+          session.g6Matched.push(session.g6Cards[a].key);
+          session.g6Flipped = [];
+          playChime(`win`);
+          if (session.g6Matched.length >= 4) awardGameStar(6);
+          renderView();
+        } else {
+          renderView();
+          setTimeout(() => { session.g6Flipped = []; renderView(); }, 750);
+          return;
+        }
+      }
+      renderView();
+    }
+
+    // Game 7: Listen & Colour
+    function g7Paint(shape) {
+      const col = session.g7TargetCol;
+      if (shape === session.g7TargetShape) {
+        session.g7Painted[shape] = col;
+        playChime(`win`);
+        speakText(`Great listening! The ${shape} is ${col}!`);
+        if (shape === `star`) { session.g7TargetShape = `heart`; session.g7TargetCol = `pink`; }
+        else if (shape === `heart`) { session.g7TargetShape = `leaf`; session.g7TargetCol = `green`; }
+        else { awardGameStar(7); }
+      } else {
+        playChime(`hint`);
+        speakText(`Listen carefully! Colour the ${session.g7TargetShape} ${session.g7TargetCol}.`);
+      }
+      renderView();
+    }
+
+    // Game 8: Mystery Colour
+    const G8_RIDDLES = [
+      { q: `I am yellow. Monkeys love to eat me. What am I?`, opts: [`Banana`, `Apple`, `Frog`], ans: `Banana` },
+      { q: `I am green. I can jump in a pond. Ribbit! What am I?`, opts: [`Carrot`, `Frog`, `Cloud`], ans: `Frog` },
+      { q: `I am red and round. I grow on a tree. What am I?`, opts: [`Apple`, `Grape`, `Sun`], ans: `Apple` }
+    ];
+    function g8Answer(choice) {
+      const r = G8_RIDDLES[session.g8Index];
+      if (choice === r.ans) {
+        playChime(`win`);
+        speakText(`Correct! It is a ${choice}!`);
+        session.g8Index = (session.g8Index + 1) % G8_RIDDLES.length;
+        awardGameStar(8);
+      } else {
+        playChime(`hint`);
+        speakText(`Try again!`);
+      }
+      renderView();
+    }
+
+    // Game 9: Sort the Colours
+    const G9_ITEMS = [
+      { id: `strawberry`, label: `Red Strawberry`, col: `red` },
+      { id: `whale`,      label: `Blue Whale`,     col: `blue` },
+      { id: `frog`,       label: `Green Frog`,     col: `green` },
+      { id: `ladybug`,    label: `Red Ladybug`,    col: `red` },
+      { id: `sky`,        label: `Blue Jeans`,     col: `blue` },
+      { id: `pear`,       label: `Green Pear`,     col: `green` }
+    ];
+    function g9Select(id) { session.g9Selected = id; playChime(`pop`); renderView(); }
+    function g9DropBin(binCol) {
+      if (!session.g9Selected) return;
+      const item = G9_ITEMS.find(x => x.id === session.g9Selected);
+      if (item && item.col === binCol) {
+        session.g9Sorted.push(item.id);
+        session.g9Selected = null;
+        playChime(`win`);
+        speakText(`${item.label} goes in the ${binCol} bin!`);
+        if (session.g9Sorted.length >= G9_ITEMS.length) awardGameStar(9);
+      } else {
+        playChime(`hint`);
+        speakText(`Look at the colour of that item!`);
+      }
+      renderView();
+    }
+
+    // Game 10: Colour Hunt
+    function g10Collect(idx) {
+      if (!session.g10Found.includes(idx)) session.g10Found.push(idx);
+      playChime(`pop`);
+      speakText(`Found purple item ${session.g10Found.length} of 4!`);
+      if (session.g10Found.length >= 4) awardGameStar(10);
+      renderView();
+    }
+
+    // Game 11: What's Missing?
+    const G11_PATTERNS = [
+      { seq: [`Red`, `Blue`, `Red`, `___`], opts: [`Blue`, `Green`, `Yellow`], ans: `Blue` },
+      { seq: [`Yellow`, `Green`, `Purple`, `Yellow`, `___`], opts: [`Orange`, `Green`, `Red`], ans: `Green` }
+    ];
+    function g11Pick(opt) {
+      const p = G11_PATTERNS[session.g11Index];
+      if (opt === p.ans) {
+        playChime(`win`);
+        speakText(`Great pattern! The missing colour is ${opt}!`);
+        session.g11Index = (session.g11Index + 1) % G11_PATTERNS.length;
+        awardGameStar(11);
+      } else {
+        playChime(`hint`);
+        speakText(`Look at the pattern again!`);
+      }
+      renderView();
+    }
+
+    // Game 12: Colour Creator
+    function g12SetColour(c) { session.g12ActiveColour = c; playChime(`pop`); renderView(); }
+    function g12SetShape(s) { session.g12ActiveShape = s; playChime(`pop`); renderView(); }
+    function g12StampAt(ev) {
+      const svg = ev.currentTarget;
+      const rect = svg.getBoundingClientRect();
+      const x = Math.round(((ev.clientX - rect.left) / rect.width) * 500);
+      const y = Math.round(((ev.clientY - rect.top) / rect.height) * 240);
+      session.g12Stamps.push({ x, y, col: session.g12ActiveColour, shape: session.g12ActiveShape });
+      playChime(`pop`);
+      if (session.g12Stamps.length >= 4) awardGameStar(12);
+      renderView();
+    }
+    function g12Clear() { session.g12Stamps = []; renderView(); }
+
+    function renderGamesView() {
+      const gid = appState.activeGameId;
+      let gameHtml = ``;
+
+      if (gid === 1) {
+        const balloons = [`red`, `blue`, `yellow`, `green`, `purple`, `pink`];
+        gameHtml = `
+          <div class="card">
+            <h3>Game 1: Colour Pop</h3>
+            <p>Pop the <strong>${session.g1Target.toUpperCase()}</strong> balloon! (Popped: ${session.g1Popped}/5)</p>
+            <div style="display:flex; flex-wrap:wrap; gap:var(--space-md); justify-content:center; padding:var(--space-md);">
+              ${balloons.map(c => `
+                <button type="button" class="interactive-obj" style="background:none; border:none; cursor:pointer;" onclick="g1PopBalloon('${c}')" aria-label="${COLOURS[c].name} balloon">
+                  <svg width="74" height="96" viewBox="0 0 74 96" aria-hidden="true">
+                    <ellipse cx="37" cy="36" rx="28" ry="33" fill="${COLOURS[c].css}" stroke="var(--on-surface)" stroke-width="2"/>
+                    <path d="M37 69 Q32 82 40 94" stroke="var(--on-surface)" stroke-width="2" fill="none"/>
+                  </svg>
+                </button>`).join(``)}
+            </div>
+            <div id="g1-fb" class="feedback-box"><span>Tap the ${session.g1Target} balloon!</span></div>
+          </div>`;
+      } else if (gid === 2) {
+        const objs = [{ c: `red`, label: `Strawberry` }, { c: `green`, label: `Leaf` }, { c: `yellow`, label: `Sun` }, { c: `blue`, label: `Sky` }];
+        gameHtml = `
+          <div class="card">
+            <h3>Game 2: Colour Match (${session.g2Matched.length}/4)</h3>
+            <p>Tap an object, then tap its matching colour name!</p>
+            <div class="grid-2">
+              <div style="display:grid; gap:var(--space-xs);">
+                ${objs.map(o => `<button type="button" class="btn ${session.g2SelectedObj === o.c ? 'btn-primary' : 'btn-soft'}" ${session.g2Matched.includes(o.c) ? 'disabled' : ''} onclick="g2PickObj('${o.c}')">${o.label} ${session.g2Matched.includes(o.c) ? '✓' : ''}</button>`).join(``)}
+              </div>
+              <div style="display:grid; gap:var(--space-xs);">
+                ${[`blue`, `red`, `yellow`, `green`].map(c => `<button type="button" class="btn btn-soft" ${session.g2Matched.includes(c) ? 'disabled' : ''} onclick="g2PickColour('${c}')"><span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name}</button>`).join(``)}
+              </div>
+            </div>
+          </div>`;
+      } else if (gid === 3) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 3: Colour Detective (${session.g3Found.length}/3 yellow things)</h3>
+            <p>Find and tap all 3 <strong>YELLOW</strong> objects in the park!</p>
+            <svg viewBox="0 0 500 200" class="scene-svg" style="background:var(--color-sky-soft);">
+              <rect x="0" y="140" width="500" height="60" fill="var(--color-grass-soft)"/>
+              <circle cx="80" cy="50" r="28" fill="var(--color-yellow)" class="interactive-obj" onclick="g3Tap('sun','yellow')"/>
+              <circle cx="210" cy="145" r="20" fill="var(--color-red)" class="interactive-obj" onclick="g3Tap('ball','red')"/>
+              <ellipse cx="320" cy="148" rx="22" ry="15" fill="var(--color-yellow)" class="interactive-obj" onclick="g3Tap('duck','yellow')"/>
+              <circle cx="430" cy="135" r="18" fill="var(--color-yellow)" class="interactive-obj" onclick="g3Tap('flower','yellow')"/>
+              <rect x="130" y="95" width="35" height="55" fill="var(--color-blue)" class="interactive-obj" onclick="g3Tap('bench','blue')"/>
+            </svg>
+          </div>`;
+      } else if (gid === 4) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 4: Rainbow Puzzle</h3>
+            <p>Tap two stripes to swap them until they read: Red, Orange, Yellow, Green, Blue, Indigo, Violet!</p>
+            <div style="display:grid; gap:6px; max-width:440px;">
+              ${session.g4Order.map((c, idx) => `
+                <button type="button" class="btn" style="background:${COLOURS[c].css}; color:${COLOURS[c].textLight ? 'var(--color-white)' : 'var(--on-surface)'}; border: ${session.g4Picked === idx ? '4px solid var(--on-surface)' : 'none'};" onclick="g4TapStripe(${idx})">
+                  ${COLOURS[c].name} ${session.g4Picked === idx ? '(Selected)' : ''}
+                </button>`).join(``)}
+            </div>
+          </div>`;
+      } else if (gid === 5) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 5: Mix It!</h3>
+            <p>Which TWO primary colours make <strong>${session.g5Target.toUpperCase()}</strong>?</p>
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${[`red`, `yellow`, `blue`].map(c => `
+                <button type="button" class="colour-chip ${session.g5Picks.includes(c) ? 'selected' : ''}" onclick="g5Pick('${c}')">
+                  <span class="colour-dot" style="background:${COLOURS[c].css};"></span> ${COLOURS[c].name}
+                </button>`).join(``)}
+            </div>
+            <button type="button" class="btn btn-primary" onclick="g5Check()">Check Mix!</button>
+          </div>`;
+      } else if (gid === 6) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 6: Colour Memory (${session.g6Matched.length}/4 pairs)</h3>
+            <p>Flip two cards to match each colour name with its object!</p>
+            <div class="memory-grid">
+              ${session.g6Cards.map((card, i) => {
+                const isFlipped = session.g6Flipped.includes(i);
+                const isMatched = session.g6Matched.includes(card.key);
+                return `<button type="button" class="memory-card ${isFlipped ? 'flipped' : ''} ${isMatched ? 'matched' : ''}" onclick="g6Flip(${i})">
+                  ${(isFlipped || isMatched) ? `<span class="colour-dot" style="background:${COLOURS[card.key].css};"></span><span>${card.label}</span>` : `<span>?</span>`}
+                </button>`;
+              }).join(``)}
+            </div>
+          </div>`;
+      } else if (gid === 7) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 7: Listen & Colour</h3>
+            <p>Instruction: <strong>"Colour the ${session.g7TargetShape} ${session.g7TargetCol}!"</strong>
+              <button type="button" class="btn btn-audio" onclick="speakText('Colour the ${session.g7TargetShape} ${session.g7TargetCol}!')">Listen</button>
+            </p>
+            <div style="display:flex; gap:var(--space-lg); justify-content:center; flex-wrap:wrap; padding:var(--space-md);">
+              <button type="button" class="btn btn-soft" style="min-height:90px; padding:var(--space-md); background:${session.g7Painted.star ? COLOURS[session.g7Painted.star].css : 'var(--surface-container)'};" onclick="g7Paint('star')">★ Star</button>
+              <button type="button" class="btn btn-soft" style="min-height:90px; padding:var(--space-md); background:${session.g7Painted.heart ? COLOURS[session.g7Painted.heart].css : 'var(--surface-container)'};" onclick="g7Paint('heart')">♥ Heart</button>
+              <button type="button" class="btn btn-soft" style="min-height:90px; padding:var(--space-md); background:${session.g7Painted.leaf ? COLOURS[session.g7Painted.leaf].css : 'var(--surface-container)'};" onclick="g7Paint('leaf')">♣ Leaf</button>
+            </div>
+          </div>`;
+      } else if (gid === 8) {
+        const r = G8_RIDDLES[session.g8Index];
+        gameHtml = `
+          <div class="card">
+            <h3>Game 8: Mystery Colour</h3>
+            <p style="font-size:1.1rem; font-weight:700;">"${r.q}" <button type="button" class="btn btn-audio" onclick="speakText(\`${r.q}\`)">Hear Clue</button></p>
+            <div class="swatch-row">
+              ${r.opts.map(o => `<button type="button" class="btn btn-primary" onclick="g8Answer('${o}')">${o}</button>`).join(``)}
+            </div>
+          </div>`;
+      } else if (gid === 9) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 9: Sort the Colours (${session.g9Sorted.length}/${G9_ITEMS.length})</h3>
+            <p>Tap an item, then tap the matching colour bin!</p>
+            <div class="swatch-row" style="margin-bottom:var(--space-md);">
+              ${G9_ITEMS.map(it => {
+                const done = session.g9Sorted.includes(it.id);
+                return `<button type="button" class="draggable-chip ${session.g9Selected === it.id ? 'selected-drag' : ''}" ${done ? 'disabled' : ''} onclick="g9Select('${it.id}')">${it.label} ${done ? '✓' : ''}</button>`;
+              }).join(``)}
+            </div>
+            <div class="grid-3">
+              ${[`red`, `blue`, `green`].map(b => `
+                <button type="button" class="drop-zone" style="background:${COLOURS[b].css}; color:var(--color-white); cursor:pointer;" onclick="g9DropBin('${b}')">
+                  ${COLOURS[b].name} Bin
+                </button>`).join(``)}
+            </div>
+          </div>`;
+      } else if (gid === 10) {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 10: Colour Hunt (${session.g10Found.length}/4 purple gems)</h3>
+            <p>Explore the meadow and collect all 4 <strong>PURPLE</strong> gems!</p>
+            <div class="grid-4">
+              ${[0, 1, 2, 3].map(i => {
+                const found = session.g10Found.includes(i);
+                return `<button type="button" class="btn ${found ? 'btn-primary' : 'btn-soft'}" style="min-height:80px;" onclick="g10Collect(${i})">
+                  <span class="colour-dot" style="background:var(--color-purple);"></span> ${found ? 'Collected!' : 'Tap Purple Gem'}
+                </button>`;
+              }).join(``)}
+            </div>
+          </div>`;
+      } else if (gid === 11) {
+        const p = G11_PATTERNS[session.g11Index];
+        gameHtml = `
+          <div class="card">
+            <h3>Game 11: What's Missing?</h3>
+            <p style="font-size:1.15rem; font-weight:800;">${p.seq.join(` → `)}</p>
+            <div class="swatch-row">
+              ${p.opts.map(o => `<button type="button" class="btn btn-primary" onclick="g11Pick('${o}')">${o}</button>`).join(``)}
+            </div>
+          </div>`;
+      } else {
+        gameHtml = `
+          <div class="card">
+            <h3>Game 12: Colour Creator</h3>
+            <p>Pick a shape and colour, then tap anywhere on the meadow canvas to stamp colourful art!</p>
+            <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-bottom:var(--space-sm);">
+              ${[`flower`, `star`, `circle`].map(sh => `<button type="button" class="btn ${session.g12ActiveShape === sh ? 'btn-secondary' : 'btn-soft'}" onclick="g12SetShape('${sh}')">${sh}</button>`).join(``)}
+              ${[`red`, `yellow`, `blue`, `green`, `pink`, `purple`].map(c => `<button type="button" class="colour-chip ${session.g12ActiveColour === c ? 'selected' : ''}" onclick="g12SetColour('${c}')"><span class="colour-dot" style="background:${COLOURS[c].css};"></span></button>`).join(``)}
+              <button type="button" class="btn btn-soft" onclick="g12Clear()">Clear</button>
+            </div>
+            <svg viewBox="0 0 500 240" class="scene-svg" style="background:var(--surface-container-low); border:2px solid var(--outline-variant); cursor:crosshair;" onclick="g12StampAt(event)">
+              <text x="250" y="24" text-anchor="middle" font-size="13" fill="var(--on-surface-variant)">Tap anywhere to place colourful stamps!</text>
+              ${session.g12Stamps.map(st => {
+                if (st.shape === `flower`) return `<circle cx="${st.x}" cy="${st.y}" r="18" fill="${COLOURS[st.col].css}"/><circle cx="${st.x}" cy="${st.y}" r="6" fill="var(--color-yellow)"/>`;
+                if (st.shape === `star`) return `<polygon points="${st.x},${st.y-18} ${st.x+5},${st.y-5} ${st.x+18},${st.y-5} ${st.x+8},${st.y+4} ${st.x+12},${st.y+18} ${st.x},${st.y+9} ${st.x-12},${st.y+18} ${st.x-8},${st.y+4} ${st.x-18},${st.y-5} ${st.x-5},${st.y-5}" fill="${COLOURS[st.col].css}"/>`;
+                return `<circle cx="${st.x}" cy="${st.y}" r="16" fill="${COLOURS[st.col].css}"/>`;
+              }).join(``)}
+            </svg>
+          </div>`;
+      }
+
+      return `
+        <section class="hero-panel">
+          <span class="kicker">Play & Practise (${appState.gamesCompleted.length}/12 Games Completed)</span>
+          <h1 class="display">Interactive <em>Mini-Games</em></h1>
+          <div class="pill-tabs">
+            ${GAMES_LIST.map(g => `
+              <button type="button" class="btn btn-nav ${gid === g.id ? 'active' : ''}" onclick="selectMiniGame(${g.id})">
+                ${g.name} ${appState.gamesCompleted.includes(g.id) ? '★' : ''}
+              </button>`).join(``)}
+          </div>
+          ${gameHtml}
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // SECTION 13: COMMUNICATION & CHAT ACTIVITIES (LILY & OLIVER)
+    // -------------------------------------------------------------------------
+    const CHAT_SCENARIOS = {
+      1: {
+        title: `1. Favourite Colours`,
+        lines: [
+          { who: `Oliver`, text: `Hi, Lily! What's your favourite colour?` },
+          { who: `Lily`,   text: `My favourite colour is pink.` },
+          { who: `Oliver`, text: `Really? I like blue!` },
+          { who: `Lily`,   text: `Look at my flowers. They are pink and purple.` },
+          { who: `Oliver`, text: `They are beautiful!` }
+        ],
+        prompt: `How can you reply to Oliver?`,
+        replies: [
+          `My favourite colour is green because it is beautiful!`,
+          `I like yellow because I like the sun!`
+        ]
+      },
+      2: {
+        title: `2. What Colour Is It?`,
+        lines: [
+          { who: `Lily`,   text: `Look at that butterfly! What colour is it?` },
+          { who: `Oliver`, text: `It is blue! Do you like blue?` }
+        ],
+        prompt: `Choose your answer:`,
+        replies: [
+          `Yes, I do! Blue is lovely.`,
+          `No, I don't. My favourite colour is red!`
+        ]
+      }
+    };
+
+    function setChatScenario(num) {
+      session.chatScenario = num;
+      session.chatMessages = [];
+      renderView();
+    }
+
+    function sendChatReply(text) {
+      session.chatMessages.push({ who: `You`, text });
+      playChime(`win`);
+      speakText(text);
+      renderView();
+    }
+
+    function renderChatView() {
+      const sc = CHAT_SCENARIOS[session.chatScenario];
+      const allLines = sc.lines.concat(session.chatMessages);
+
+      return `
+        <section class="hero-panel">
+          <span class="kicker">English Communication Practice</span>
+          <h1 class="display">Chat with <em>Lily & Oliver</em></h1>
+          <p style="color:var(--on-surface-variant);">Tap any speech bubble to hear Lily and Oliver speak, then choose your reply!</p>
+
+          <div class="pill-tabs">
+            <button type="button" class="btn btn-nav ${session.chatScenario === 1 ? 'active' : ''}" onclick="setChatScenario(1)">1. Favourite Colours</button>
+            <button type="button" class="btn btn-nav ${session.chatScenario === 2 ? 'active' : ''}" onclick="setChatScenario(2)">2. Questions & Answers</button>
+          </div>
+
+          <div class="chat-stream" style="margin-bottom:var(--space-md);">
+            ${allLines.map(msg => {
+              const isRight = msg.who === `Lily` || msg.who === `You`;
+              return `
+                <div class="chat-row ${isRight ? 'right' : ''}">
+                  ${renderCompanionAvatar(msg.who === `Oliver` ? `Oliver` : `Lily`, 44)}
+                  <div class="chat-bubble">
+                    <span style="font-size:0.75rem; font-weight:800; color:var(--secondary);">${msg.who}</span>
+                    <span>${msg.text}</span>
+                    <div>
+                      <button type="button" class="btn btn-audio" style="min-height:32px; padding:2px 10px; font-size:0.8rem;" onclick="speakText(\`${msg.text}\`)">
+                        <i data-lucide="volume-2" aria-hidden="true"></i> Listen
+                      </button>
+                    </div>
+                  </div>
+                </div>`;
+            }).join(``)}
+          </div>
+
+          <div class="card card-sky">
+            <h3>${sc.prompt}</h3>
+            <div style="display:flex; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-sm);">
+              ${sc.replies.map(r => `<button type="button" class="btn btn-primary" onclick="sendChatReply(\`${r}\`)">${r}</button>`).join(``)}
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    // -------------------------------------------------------------------------
+    // SECTION 16: TROPHY BOOK, STICKERS, GALLERY & CERTIFICATE
+    // -------------------------------------------------------------------------
+    function updateLearnerName() {
+      const inp = document.getElementById(`learner-name-input`);
+      if (!inp) return;
+      appState.learnerName = inp.value.trim() || `Colour Explorer`;
+      saveState();
+      renderView();
+    }
+
+    function downloadCertificateText() {
+      if (window.notebookAppApi && typeof window.notebookAppApi.triggerFileDownload === `function`) {
+        const text = `CERTIFICATE OF ACHIEVEMENT\nTHE MAGICAL WORLD OF COLOURS\n\nAwarded to: ${appState.learnerName}\nAdventure Companion: ${appState.companion}\nChapters Restored: ${appState.completedChapters.length} / 7\nRainbow Stars Earned: ${appState.stars}\n\nCongratulations, Colour Explorer!`;
+        window.notebookAppApi.triggerFileDownload({
+          content: text,
+          contentType: `text/plain`,
+          encoding: `UTF-8`,
+          filename: `colour-explorer-certificate.txt`
+        });
+      }
+    }
+
+    function renderTrophiesView() {
+      const done = appState.completedChapters.length;
+      return `
+        <section class="hero-panel">
+          <span class="kicker">Progress & Rewards</span>
+          <h1 class="display">Your <em>Trophy</em> Book & Gallery</h1>
+
+          <!-- Sticker Book -->
+          <div class="card" style="margin-bottom:var(--space-lg);">
+            <h3>Collectible Chapter Stickers (${done}/7)</h3>
+            <div class="grid-4" style="margin-top:var(--space-md);">
+              ${CHAPTERS.map(ch => {
+                const earned = appState.completedChapters.includes(ch.id);
+                return `<div style="padding:var(--space-md); border-radius:var(--rounded); background:${earned ? 'var(--surface-container-low)' : 'var(--surface-container)'}; border:2px solid ${earned ? ch.colorVar : 'var(--outline-variant)'}; text-align:center;">
+                  <div style="width:42px; height:42px; border-radius:9999px; margin:0 auto var(--space-xs); background:${earned ? ch.colorVar : 'var(--color-grey-light)'}; display:flex; align-items:center; justify-content:center; color:var(--color-white); font-weight:900;">${earned ? '★' : '?'}</div>
+                  <strong style="font-size:0.9rem;">${ch.sticker}</strong>
+                  <div style="font-size:0.78rem; color:var(--on-surface-variant);">${earned ? 'Unlocked!' : ch.title}</div>
+                </div>`;
+              }).join(``)}
+            </div>
+          </div>
+
+          <!-- Saved Artwork Gallery -->
+          <div class="card card-sky" style="margin-bottom:var(--space-lg);">
+            <h3>Personal Artwork Gallery (${appState.savedArtworks.length} paintings)</h3>
+            ${appState.savedArtworks.length === 0
+              ? `<p style="color:var(--on-surface-variant);">No saved paintings yet! Visit <strong>Chapter 5: The Colourful Art Studio</strong> to paint and save your artwork.</p>
+                 <button type="button" class="btn btn-primary" onclick="goToView('studio')">Open Art Studio</button>`
+              : `<div class="grid-3" style="margin-top:var(--space-md);">
+                  ${appState.savedArtworks.map((art, i) => `
+                    <div style="background:var(--surface-container-low); padding:var(--space-sm); border-radius:var(--rounded); border:2px solid var(--outline-variant);">
+                      ${renderArtworkSvg(art.colors, true)}
+                      <div style="font-size:0.85rem; font-weight:700; margin-top:4px;">Painting #${i + 1} by ${art.artist}</div>
+                    </div>`).join(``)}
+                </div>`}
+          </div>
+
+          <!-- Colour Explorer Certificate -->
+          <div class="certificate-frame">
+            <span class="kicker" style="justify-content:center;">Official Storybook Award</span>
+            <h2 style="margin:0;">Colour Explorer Certificate</h2>
+            <p style="margin:0;">This certifies that</p>
+            <div style="font-size:1.75rem; font-weight:900; color:var(--primary);">${appState.learnerName}</div>
+            <p style="margin:0;">with companion <strong>${appState.companion}</strong>, explored Colourland, restored <strong>${done}/7</strong> magical places, and earned <strong>${appState.stars} Rainbow Stars</strong>!</p>
+
+            <div class="field-group" style="max-width:340px; margin:0 auto;">
+              <label for="learner-name-input">Your Name on the Certificate</label>
+              <div style="display:flex; gap:var(--space-xs);">
+                <input type="text" id="learner-name-input" value="${appState.learnerName}" style="flex:1;">
+                <button type="button" class="btn btn-primary" onclick="updateLearnerName()">Update</button>
+              </div>
+            </div>
+
+            <div style="display:flex; justify-content:center; gap:var(--space-sm); flex-wrap:wrap;">
+              <button type="button" class="btn btn-secondary" onclick="speakText('Congratulations ${appState.learnerName}! You are a wonderful Colour Explorer!')">
+                <i data-lucide="volume-2" aria-hidden="true"></i> Celebrate Aloud
+              </button>
+              <button type="button" class="btn btn-sky" onclick="downloadCertificateText()">
+                <i data-lucide="download" aria-hidden="true"></i> Download Certificate
+              </button>
+              <button type="button" class="btn btn-soft" onclick="resetAllProgress(this)">Reset Progress</button>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    // =========================================================================
+    // 7. BOOTSTRAP APPLICATION
+    // =========================================================================
+    async function initApp() {
+      await loadState();
+      renderView();
+      if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === `function`) {
+        window.notebookAppApi.notifyAppReady();
+      }
+    }
+
+    document.addEventListener(`DOMContentLoaded`, initApp);
+  </script>
+</body>
+</html>
+Menampilkan The_Magical_World_of_Colours_-_Interactive_English_Learnin.html.
